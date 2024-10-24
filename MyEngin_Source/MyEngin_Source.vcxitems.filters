@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pScript.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pApplication.cpp">
+      <Filter>application</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pInput.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pTime.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pMath.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pResource.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pResources.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pTexture.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pEntity.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pTransform.cpp">
+      <Filter>component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCamera.cpp">
+      <Filter>component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pComponent.cpp">
+      <Filter>component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pBoxCollider2D.cpp">
+      <Filter>collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCircleCollider2D.cpp">
+      <Filter>collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCollider.cpp">
+      <Filter>collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCollisionManager.cpp">
+      <Filter>collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pDontDestroyOnLoad.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pGameObject.cpp">
+      <Filter>component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pSpriteRenderer.cpp">
+      <Filter>component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pTilemapRenderer.cpp">
+      <Filter>component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAnimator.cpp">
+      <Filter>component\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAnimtation.cpp">
+      <Filter>component\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Fmod.cpp">
+      <Filter>Fmod</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)AudioClip.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)AudioListener.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)AudioSource.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAudioClip.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAudioListener.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAudioSource.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pFmod.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIButton.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIHUD.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)UIButton.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)UIHUD.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)UIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pRigidBody.cpp">
+      <Filter>component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)RididBody.cpp">
+      <Filter>component</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pScript.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pApplication.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pEnum.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pInput.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pTime.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pMath.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pResource.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pResources.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pTexture.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pEntity.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCamera.h">
+      <Filter>component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pTransform.h">
+      <Filter>component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pComponent.h">
+      <Filter>component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pBoxCollider2D.h">
+      <Filter>collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCircleCollider2D.h">
+      <Filter>collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCollider.h">
+      <Filter>collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCollisionManager.h">
+      <Filter>collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pDontDestroyOnLoad.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pGameObject.h">
+      <Filter>component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pObject.h">
+      <Filter>component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pSpriteRenderer.h">
+      <Filter>component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pTilemapRenderer.h">
+      <Filter>component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAnimation.h">
+      <Filter>component\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAnimator.h">
+      <Filter>component\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUIButton.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pFmod.h">
+      <Filter>Fmod</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAudioClip.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAudioListener.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAudioSource.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUIHUD.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pRigidBody.h">
+      <Filter>component</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="util">
+      <UniqueIdentifier>{731748b7-adc5-46e7-820b-642caa4c35ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="application">
+      <UniqueIdentifier>{2ca2ee19-57df-47d4-857b-8fbb72566142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{8f87a60b-d456-4c06-87b9-a4b02b292e90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="component">
+      <UniqueIdentifier>{86f72f2b-2a23-46a6-8867-3321c4e4a792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="collider">
+      <UniqueIdentifier>{50e54c3c-a62e-4506-82f9-6a607236f739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="component\Renderer">
+      <UniqueIdentifier>{56f696f9-0b72-45ed-848b-26f2c4bf1880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="component\animation">
+      <UniqueIdentifier>{0640b708-c12b-4924-a2a7-2c2fa0b8bc05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{4c247843-d179-4fa7-8c9d-6bf93ba45842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fmod">
+      <UniqueIdentifier>{90c094eb-c8ca-4a6b-9f3d-72ebdefea38f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{098b2684-3914-4e33-83c9-e1efb8fca9f4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

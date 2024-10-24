@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{315daa29-38f3-4f05-a2b9-2586003b581d}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)AudioClip.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)AudioListener.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)AudioSource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Fmod.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAnimtation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAudioClip.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAudioListener.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pAudioSource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pBoxCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCamera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCollider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCollisionManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pDontDestroyOnLoad.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pFmod.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pRigidBody.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pTilemapRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pScript.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIHUD.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RididBody.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UIButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UIHUD.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UIManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAudioClip.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAudioListener.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pAudioSource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pBoxCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCamera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCollider.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCollisionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pDontDestroyOnLoad.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pEnum.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pFmod.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pRigidBody.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pScript.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pTexture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pTilemapRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUIButton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUIHUD.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUIManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUIBase.h" />
+  </ItemGroup>
+</Project>
