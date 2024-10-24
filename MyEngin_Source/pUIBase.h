@@ -1,5 +1,6 @@
 #pragma once
 #include "pEntity.h"
+#include <string>
 namespace p {
 	using namespace enums;
 	class UIBase:public Entity
@@ -18,7 +19,7 @@ namespace p {
 			}
 			std::function<void()> mEvent;
 		};
-		UIBase(eUIType type);
+		UIBase();
 		virtual ~UIBase();
 
 		void Initialize(); //ui로드되면 초기화
@@ -39,8 +40,8 @@ namespace p {
 		virtual void OnRender(HDC hdc);
 		virtual void OnClear();
 
-		eUIType GetType() { return mType; }
-		void SetType(eUIType type) { mType = type; }
+		std::wstring GetUIName() { return UIName; }
+		void SetUIName(std::wstring name) { UIName = name; }
 		void SetFullScrenn(bool fullscreen) { mbFulllScreen = fullscreen; }
 		void SetEnabled(bool enable) { mbEnabled = enable; }
 		bool IsFullScreen() { return mbFulllScreen; }
@@ -54,9 +55,9 @@ namespace p {
 		Vector2 mPosition;
 		Vector2 mSize;
 		bool mbMouseOn;
+		std::wstring UIName;
 
 	private:
-		eUIType mType;
 		bool mbFulllScreen;
 		bool mbEnabled;
 		UIBase* mParent;

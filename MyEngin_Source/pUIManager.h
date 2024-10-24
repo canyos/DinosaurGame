@@ -8,7 +8,7 @@ namespace p {
 	{
 	public:
 		static void Initialize();
-		static void OnLoad(eUIType type);
+		static void OnLoad(std::wstring name);
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
@@ -16,13 +16,13 @@ namespace p {
 		static void OnFail();
 		static void Release();
 
-		static void Push(eUIType type);
-		static void Pop(eUIType type);
+		static void Push(std::wstring name);
+		static void Pop(std::wstring name);
 
 	private:
-		static std::unordered_map<eUIType, UIBase*> mUIs;//UI type에 따른 UIBase들
+		static std::unordered_map<std::wstring, UIBase*> mUIs;//UI type에 따른 UIBase들
 		static std::stack<UIBase*> mUIBases; //UI들 가지고있음
-		static std::queue<eUIType> mRequestUiQueue; //메세지 큐
+		static std::queue<std::wstring> mRequestUiQueue; //메세지 큐
 		static UIBase* mActiveUI; 
 	};
 }

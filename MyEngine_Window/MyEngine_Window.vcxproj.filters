@@ -4,9 +4,6 @@
     <ClInclude Include="pPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
-    <ClInclude Include="pLoadScene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="pPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -42,6 +39,9 @@
     </ClInclude>
     <ClInclude Include="pFloorScript.h">
       <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="pLoadScene.h">
+      <Filter>Load</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

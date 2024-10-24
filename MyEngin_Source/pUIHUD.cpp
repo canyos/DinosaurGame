@@ -4,7 +4,6 @@
 namespace p
 {
 	UIHUD::UIHUD()
-		: UIBase(eUIType::HpBar)
 	{
 	}
 	UIHUD::~UIHUD()

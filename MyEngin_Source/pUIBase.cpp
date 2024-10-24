@@ -1,9 +1,9 @@
 #include "pUIBase.h"
+#include <string>
 
 namespace p {
-	UIBase::UIBase(eUIType type)
-		:mType(type),
-		mbMouseOn(false)
+	UIBase::UIBase()
+		:mbMouseOn(false)
 	{
 	}
 	UIBase::~UIBase()

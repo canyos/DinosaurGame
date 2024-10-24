@@ -1,23 +1,38 @@
 #include "pUIManager.h"
 #include "pUIHUD.h"
 #include "pUIButton.h"
+#include "pSceneManager.h"
+#include <string>
 
 namespace p {
-	std::unordered_map<eUIType, UIBase*> UIManager::mUIs = {};
+	std::unordered_map<std::wstring, UIBase*> UIManager::mUIs = {};
 	std::stack<UIBase*> UIManager::mUIBases = {};
-	std::queue<eUIType> UIManager::mRequestUiQueue = {};
+	std::queue<std::wstring> UIManager::mRequestUiQueue = {};
 	UIBase* UIManager::mActiveUI = nullptr;
 	void UIManager::Initialize()
 	{
-		// UI 객체 생성해주기
-		UIHUD* hud = new UIHUD();
-		mUIs.insert(std::make_pair(eUIType::HpBar, hud));
-		UIButton* button = new UIButton();
-		mUIs.insert(std::make_pair(eUIType::Button, button));
+		UIButton* startButton = new UIButton();
+		startButton->SetUIName(L"Start Button");
+		startButton->SetPos(Vector2(100.0f, 100.0f));
+		startButton->SetSize(Vector2(200.0f, 50.0f));
+		startButton->SetClickEvent([]() {
+			SceneManager::LoadScene(L"PlayScene");
+			});
+
+		mUIs.insert(std::make_pair(L"Start Button", startButton));
+
+		UIButton* exitButton = new UIButton();
+		exitButton->SetUIName(L"Exit Button");
+		exitButton->SetPos(Vector2(100.0f, 400.0f));
+		exitButton->SetSize(Vector2(200.0f, 50.0f));
+		exitButton->SetClickEvent([]() {
+			PostQuitMessage(0);
+			});
+		mUIs.insert(std::make_pair(L"Exit Button", exitButton));
 	}
-	void UIManager::OnLoad(eUIType type)
+	void UIManager::OnLoad(std::wstring uiName)
 	{
-		std::unordered_map<eUIType, UIBase*>::iterator iter = mUIs.find(type);
+		std::unordered_map<std::wstring, UIBase*>::iterator iter = mUIs.find(uiName);
 		if (iter == mUIs.end()) {//로드 실패
 			OnFail();
 			return;
@@ -39,9 +54,9 @@ namespace p {
 		
 
 		if (mRequestUiQueue.size() > 0) { //보여줘야할거있으면 로드하기
-			eUIType requestUI = mRequestUiQueue.front();
+			std::wstring requestUIName = mRequestUiQueue.front();
 			mRequestUiQueue.pop();
-			OnLoad(requestUI);
+			OnLoad(requestUIName);
 		}
 	}
 	void UIManager::LateUpdate()
@@ -115,11 +130,11 @@ namespace p {
 			iter.second = nullptr;
 		}
 	}
-	void UIManager::Push(eUIType type)
+	void UIManager::Push(std::wstring UIName)
 	{
-		mRequestUiQueue.push(type);
+		mRequestUiQueue.push(UIName);
 	}
-	void UIManager::Pop(eUIType type)
+	void UIManager::Pop(std::wstring name)
 	{
 		if (mUIBases.size() <= 0)
 			return;
@@ -132,7 +147,7 @@ namespace p {
 			uiBase = mUIBases.top();
 			mUIBases.pop();
 
-			if (uiBase->GetType() != type)//다르면 템프에 넣음
+			if (uiBase->GetUIName() != name)//다르면 템프에 넣음
 			{
 				tempStack.push(uiBase);
 				continue;
@@ -163,7 +178,7 @@ namespace p {
 			mUIBases.push(uiBase);
 		}
 
-		if (!mUIBases.empty())
+		if (mUIBases.empty())
 			mActiveUI = nullptr;
 		else
 			mActiveUI = mUIBases.top();

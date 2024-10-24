@@ -36,37 +36,35 @@ namespace p
 	}
 	void PlayScene::Initialize()
 	{
+		
+		/*FILE* pFile = nullptr;
+		_wfopen_s(&pFile, L"../Resources/test", L"rb");
+		while (true)
 		{
-			//FILE* pFile = nullptr;
-			//_wfopen_s(&pFile, L"../Resources/test", L"rb");
-			//while (true)
-			//{
-			//	int idxX = 0;
-			//	int idxY = 0;
+			int idxX = 0;
+			int idxY = 0;
 
-			//	int posX = 0;
-			//	int posY = 0;
+			int posX = 0;
+			int posY = 0;
 
-			//	if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
-			//		break;
-			//	if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
-			//		break;
-			//	if (fread(&posX, sizeof(int), 1, pFile) == NULL)
-			//		break;
-			//	if (fread(&posY, sizeof(int), 1, pFile) == NULL)
-			//		break;
+			if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
+				break;
 
-			//	Tile* tile = object::Instantiate<Tile>(eLayerType::Tile, Vector2(posX, posY));
-			//	TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
-			//	tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
-			//	tmr->SetIndex(Vector2(idxX, idxY));
+			Tile* tile = object::Instantiate<Tile>(eLayerType::Tile, Vector2(posX, posY));
+			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+			tmr->SetIndex(Vector2(idxX, idxY));
 
-			//	//mTiles.push_back(tile);
-			//}
-			//fclose(pFile);
+			//mTiles.push_back(tile);
 		}
-
-
+		fclose(pFile);*/
+		
 		//main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -75,7 +73,7 @@ namespace p
 
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
-		object::DontDestroyOnLoad(mPlayer);
+		//object::DontDestroyOnLoad(mPlayer);
 		mPlayer->AddComponent<AudioListener>();
 
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
@@ -185,13 +183,11 @@ namespace p
 
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
-	
-		UIManager::Push(eUIType::Button);
 	}
 	void PlayScene::OnExit()
 	{
-		UIManager::Pop(eUIType::Button);
-
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, false);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, false);
 		Scene::OnExit();
 	}
 }

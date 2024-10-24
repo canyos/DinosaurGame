@@ -1,10 +1,10 @@
 #include "pUIButton.h"
 #include "pInput.h"
-
+#include <string>
+#include <cwchar>
 namespace p
 {
 	UIButton::UIButton()
-		: UIBase(eUIType::Button)
 	{
 	}
 	UIButton::~UIButton()
@@ -12,9 +12,7 @@ namespace p
 	}
 	void UIButton::OnInit()
 	{
-		SetPos(Vector2(200.0f, 200.0f));
-		SetSize(Vector2(200.0f, 200.0f));
-		mOnClick = std::bind(&UIButton::ButtonClick, this);
+
 	}
 	void UIButton::OnActive()
 	{
@@ -48,16 +46,19 @@ namespace p
 	}
 	void UIButton::OnRender(HDC hdc)
 	{
-		Rectangle(hdc
-			, (int)mPosition.x, (int)mPosition.y
-			, mPosition.x + mSize.x, mPosition.y + mSize.y);
+		Rectangle(hdc, mPosition.x, mPosition.y, mPosition.x + mSize.x, mPosition.x + mPosition.y);
+
+		/*wchar_t str[50] = L"Title  Scene";
+		TextOutW(hdc, 0, 0, str, lstrlenW(str));*/
+
+		size_t length = UIName.length();
+
+		const wchar_t* str = UIName.c_str();
+		int a = 0;
+		TextOutW(hdc, mPosition.x + mSize.x / 2.0f - UIName.length()*3.0f, mPosition.y + mSize.y / 2.0f + 15, str, lstrlenW(str));
 	}
 	void UIButton::OnClear()
 	{
 
-	}
-	void UIButton::ButtonClick()
-	{
-		int a = 0;
 	}
 }

@@ -54,9 +54,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RididBody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIBase.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)UIButton.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)UIHUD.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
