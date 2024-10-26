@@ -60,8 +60,8 @@ namespace p {
         float rot = tr->GetRoation();
         Vector2 scale = tr->GetScale();
 
-        if (renderer::mainCamera)
-            pos = renderer::mainCamera->CalculatePosition(pos);
+        //if (renderer::mainCamera)
+            //pos = renderer::mainCamera->CalculatePosition(pos);
 
         Sprite sprite = mAnimationSheet[mIndex];
         graphics::Texture::eTextureType type = mTexture->GetTextureType();

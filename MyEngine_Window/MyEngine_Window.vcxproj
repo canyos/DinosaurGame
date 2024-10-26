@@ -138,6 +138,8 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="LoadResources.h" />
+    <ClInclude Include="pCactus.h" />
+    <ClInclude Include="pCactusScript.h" />
     <ClInclude Include="pCameraScript.h" />
     <ClInclude Include="pCat.h" />
     <ClInclude Include="pCatScript.h" />
@@ -150,11 +152,10 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
     <ClInclude Include="pTile.h" />
     <ClInclude Include="pTitleScene.h" />
     <ClInclude Include="pToolScene.h" />
-    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Floor.cpp" />
-    <ClCompile Include="FloorScript.cpp" />
+    <ClCompile Include="pCactus.cpp" />
+    <ClCompile Include="pCactusScript.cpp" />
     <ClCompile Include="pCameraScript.cpp" />
     <ClCompile Include="pCat.cpp" />
     <ClCompile Include="pCatScript.cpp" />

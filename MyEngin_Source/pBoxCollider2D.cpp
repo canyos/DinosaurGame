@@ -25,8 +25,8 @@ namespace p {
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition(); 
 
-		if (renderer::mainCamera)
-			pos = renderer::mainCamera->CalculatePosition(pos);
+		/*if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);*/
 
 		Vector2 offset = GetOffset();
 

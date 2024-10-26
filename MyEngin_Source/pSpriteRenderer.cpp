@@ -34,7 +34,7 @@ namespace p
 		float rot = tr->GetRoation();
 		Vector2 scale = tr->GetScale();
 
-		pos = renderer::mainCamera->CalculatePosition(pos);
+		//pos = renderer::mainCamera->CalculatePosition(pos);
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
 

@@ -15,6 +15,8 @@ namespace p {
 
 		virtual void OnEnter();//Scene에 들어가거나 
 		virtual void OnExit();//나갈때 필요없는거 처리
+
+		void stopUpdate() { isEnd = true; }
 		
 		void AddGameObject(GameObject* gameObject, enums::eLayerType type);
 		void EraseGameObject(GameObject* gameObj);
@@ -22,6 +24,8 @@ namespace p {
 
 	private:
 		std::vector<Layer*> mLayers;
+		bool isEnd;
+
 	};
 }
 

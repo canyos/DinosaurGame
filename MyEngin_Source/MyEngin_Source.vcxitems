@@ -14,10 +14,6 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)AudioClip.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)AudioListener.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)AudioSource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Fmod.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAnimtation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAudioClip.cpp" />
@@ -52,7 +48,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIButton.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIHUD.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)RididBody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIBase.cpp" />
   </ItemGroup>
   <ItemGroup>

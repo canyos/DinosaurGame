@@ -26,9 +26,14 @@
 #include "pAudioClip.h"
 #include "pAudioListener.h"
 #include "pAudioSource.h"
+#include "pCactus.h"
+#include "pCactusScript.h"
+#include <random>
+
 namespace p
 {
 	PlayScene::PlayScene()
+		
 	{
 	}
 	PlayScene::~PlayScene()
@@ -78,73 +83,55 @@ namespace p
 
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
-		//CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
-		collider->SetOffset(Vector2(-50.0f, -50.0f));
+		collider->SetSize(Vector2(0.9f, 0.8f));
+		collider->SetOffset(Vector2(0.0f, 0.0f));
 
-		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"player");;
+		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
-		playerAnimator->CreateAnimation(L"Idle", playerTex
-			, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
-		playerAnimator->CreateAnimation(L"FrontGiveWater", playerTex
-			, Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f);
+		playerAnimator->CreateAnimation(L"run", playerTex
+			, Vector2(0.0f, 0.0f), Vector2(16.9f, 16.0f), Vector2(1.0f,0.0f), 4, 0.1f);
+		playerAnimator->CreateAnimation(L"die", playerTex
+			, Vector2(16.9f * 4, 0.0f), Vector2(16.9f, 16.0f), Vector2(1.0f, 0.0f), 2, 0.5f);
 
 
-		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
+		//playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 250.0f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 600.0f));
 		mPlayer->GetComponent<Transform>()->SetRotation(0.0f);
-		playerAnimator->PlayAnimation(L"Idle", false);
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(6.0f, 6.0f));
+		playerAnimator->PlayAnimation(L"run", true);
 		mPlayer->AddComponent<RigidBody>();
+		
 
-		Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(0.0f, 0.0f));
+
+		Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(0.0f, 700.0f));
 		floor->SetName(L"Floor");
-		SpriteRenderer* floorSr = floor->AddComponent<SpriteRenderer>();
-		floorSr->SetTexture(Resources::Find<graphics::Texture>(L"PixelMap"));
+		//SpriteRenderer* floorSr = floor->AddComponent<SpriteRenderer>();
+		//floorSr->SetTexture(Resources::Find<graphics::Texture>(L"PixelMap"));
 
-		AudioSource* as = floor->AddComponent<AudioSource>();
+		//AudioSource* as = floor->AddComponent<AudioSource>();
 
-		//BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
-		//floorCol->SetSize(Vector2(10.0f, 1.0f));
-		//floor->AddComponent<FloorScript>();
+		BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
+		floorCol->SetSize(Vector2(1600.0f, 200.0f));
+		floor->AddComponent<FloorScript>();
 
-		AudioClip* ac = Resources::Load<AudioClip>(L"BGSound", L"..\\Resources\\smw_bonus_game_end.wav");
+		/*AudioClip* ac = Resources::Load<AudioClip>(L"BGSound", L"..\\Resources\\smw_bonus_game_end.wav");
 		as->SetClip(ac);
-		as->Play();
+		as->Play();*/
 
 		plScript->SetPixelMapTexture(Resources::Find<graphics::Texture>(L"PixelMap"));
 
-		///CAT
+		/*///CAT
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
-		//cat->SetActive(true);
 		cat->AddComponent<CatScript>();
-		//cameraComp->SetTarget(cat);
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>(); 
 		BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
 		boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
-		//catAnimator->CreateAnimation(L"DownWalk", catTex
-		//	, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//catAnimator->CreateAnimation(L"RightWalk", catTex
-		//	, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//catAnimator->CreateAnimation(L"UpWalk", catTex
-		//	, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//catAnimator->CreateAnimation(L"LeftWalk", catTex
-		//	, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//catAnimator->CreateAnimation(L"SitDown", catTex
-		//	, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//catAnimator->CreateAnimation(L"Grooming", catTex
-		//	, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		//catAnimator->CreateAnimation(L"LayDown", catTex
-		//	, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-
-		//catAnimator->PlayAnimation(L"SitDown", false);
 		catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
-
 		catAnimator->PlayAnimation(L"MushroomIdle", true);
-
 		cat->GetComponent<Transform>()->SetPosition(Vector2(360.0f, 420.0f));
-		//cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
 
 
@@ -154,7 +141,7 @@ namespace p
 
 		//graphcis::Texture* mrIdle = Resources::Find<graphcis::Texture>(L"MushroomIdle");
 		//sheetSR->SetTexture(mrIdle);
-		//Animator* playerAnimator = mPlayer->AddComponent<Animator>();
+		//Animator* playerAnimator = mPlayer->AddComponent<Animator>();*/
 
 		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init함수를 호출
 		Scene::Initialize();
@@ -163,13 +150,58 @@ namespace p
 	void PlayScene::Update()
 	{
 		Scene::Update();
+		time++;
+		std::wstring strs[3] = { L"Cactus A", L"Cactus B", L"Cactus C" };
+		
+		if (time % spawnTime == 0) {
+			std::random_device rd;
+			std::mt19937 mt(rd());
+			std::uniform_int_distribution<int> cactus(0, 2);
+			auto randNum = cactus(mt);
+			mCactus[randNum] = object::Instantiate<Cactus>(enums::eLayerType::Animal);
+			graphics::Texture* cactusATexture = Resources::Find<graphics::Texture>(strs[randNum]);
+			BoxCollider2D* cactusCollider = mCactus[randNum]->AddComponent<BoxCollider2D>();
+
+			SpriteRenderer* cactusSr = mCactus[randNum]->AddComponent<SpriteRenderer>();
+			cactusSr->SetTexture(cactusATexture);
+			Transform* cacTr = mCactus[randNum]->AddComponent<Transform>();
+			mCactus[randNum]->AddComponent<CactusScript>();
+			
+			if (randNum == 0) {
+				cactusATexture->SetWidth(12);
+				cactusATexture->SetHeight(20);
+				cacTr->SetPosition(Vector2(1600.0f, 620.0f));
+				cacTr->SetScale(Vector2(3.0f, 4.0f));
+				cactusCollider->SetSize(Vector2(0.36f, 0.8f));
+				cactusCollider->SetOffset(Vector2::Zero);
+			}
+			else if (randNum == 1) {
+				cactusATexture->SetWidth(21);
+				cactusATexture->SetHeight(15);
+				cacTr->SetPosition(Vector2(1600.0f, 610.0f));
+				cacTr->SetScale(Vector2(3.0f, 6.0f));
+				cactusCollider->SetSize(Vector2(0.63f, 0.9f));
+				cactusCollider->SetOffset(Vector2::Zero);
+			}
+			else {
+				cactusATexture->SetWidth(28);
+				cactusATexture->SetHeight(20);
+				cacTr->SetPosition(Vector2(1600.0f, 600.0f));
+				cacTr->SetScale(Vector2(3.0f, 5.0f));
+				cactusCollider->SetSize(Vector2(0.84f, 1.0f));
+				cactusCollider->SetOffset(Vector2::Zero);
+			}
+			
+			
+			std::uniform_int_distribution<int> randSpawnTime(700, 1000);
+			spawnTime = randSpawnTime(mt);
+			time = 0;
+		}
 	}
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
-		if (Input::GetKeyDown(eKeyCode::N)) {
-			SceneManager::LoadScene(L"TitleScene");
-		}
+		
 	}
 	void PlayScene::Render(HDC hdc)
 	{

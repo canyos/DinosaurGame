@@ -51,7 +51,8 @@ namespace p {
 		default:
 			break;
 		}
-		Transform* tr = GetOwner()->GetComponent<Transform>();
+		//ÇÈ¼¿ Ãæµ¹
+		/*Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 		COLORREF color = mPixelMap->GetPixel(pos.x, pos.y+50);
 		RigidBody* rb = GetOwner()->GetComponent<RigidBody>();
@@ -64,7 +65,7 @@ namespace p {
 		else {
 			
 			rb->SetGround(false);
-		}
+		}*/
 	}
 	void PlayerScript::LateUpdate()
 	{
@@ -136,7 +137,7 @@ namespace p {
 				//pos.y -= 100.0f * Time::DeltaTime();
 				//rb->AddForce(Vector2(0, -200.0f));
 				Vector2 velocity = rb->GetVelocity();
-				velocity.y = -500.0f;
+				velocity.y = -650.0f;
 				rb->SetVelocity(velocity);
 				rb->SetGround(false);
 			}

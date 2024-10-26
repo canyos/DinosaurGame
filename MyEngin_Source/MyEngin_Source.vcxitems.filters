@@ -73,18 +73,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Fmod.cpp">
-      <Filter>Fmod</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)AudioClip.cpp">
-      <Filter>Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)AudioListener.cpp">
-      <Filter>Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)AudioSource.cpp">
-      <Filter>Audio</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pAudioClip.cpp">
       <Filter>Audio</Filter>
     </ClCompile>
@@ -93,9 +81,6 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pAudioSource.cpp">
       <Filter>Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)pFmod.cpp">
-      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIButton.cpp">
       <Filter>UI</Filter>
@@ -106,8 +91,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pRigidBody.cpp">
       <Filter>component</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)RididBody.cpp">
-      <Filter>component</Filter>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pFmod.cpp">
+      <Filter>Fmod</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -34,14 +34,17 @@
     <ClInclude Include="pFloor.h">
       <Filter>Contents</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
     <ClInclude Include="pFloorScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
     <ClInclude Include="pLoadScene.h">
       <Filter>Load</Filter>
+    </ClInclude>
+    <ClInclude Include="pCactus.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="pCactusScript.h">
+      <Filter>Scripts</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -86,15 +89,17 @@
     <ClCompile Include="pToolScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="FloorScript.cpp" />
     <ClCompile Include="pFloor.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="pFloorScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="Floor.cpp">
+    <ClCompile Include="pCactus.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="pCactusScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

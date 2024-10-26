@@ -2,7 +2,7 @@
 #include "pCollisionManager.h"
 
 namespace p {
-	Scene::Scene() :mLayers{}
+	Scene::Scene() :mLayers{}, isEnd(false)
 	{
 		mLayers.resize((UINT)enums::eLayerType::Max);
 		for (int i = 0; i < (UINT)enums::eLayerType::Max; i++) {
@@ -26,6 +26,8 @@ namespace p {
 	}
 	void Scene::Update()
 	{
+		if (isEnd) return;
+
 		for (Layer* layer : mLayers) {
 			if (layer == nullptr) continue;
 			layer->Update();

@@ -18,7 +18,6 @@ namespace p
 	void Cat::LateUpdate()
 	{
 		GameObject::LateUpdate();
-
 	}
 
 	void Cat::Render(HDC hdc)

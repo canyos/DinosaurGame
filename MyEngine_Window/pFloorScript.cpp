@@ -32,7 +32,7 @@ namespace p {
 		Collider* floorCol = this->GetOwner()->GetComponent<Collider>();
 
 		float len = fabs(playerTr->GetPosition().y - floorTr->GetPosition().y);
-		float scale = fabs(playerCol->GetSize().y * 100 - floorCol->GetSize().y * 100 / 2.0f);
+		float scale = fabs(playerTr->GetPosition().y + playerCol->GetSize().y - floorTr->GetPosition().y);
 
 		if (len < scale) {
 			Vector2 playerPos = playerTr->GetPosition();
@@ -40,7 +40,7 @@ namespace p {
 			playerTr->SetPosition(playerPos);
 		}
 
-		GetOwner()->GetComponent<AudioSource>()->Play();
+		//GetOwner()->GetComponent<AudioSource>()->Play();
 		rb->SetGround(true);
 	}
 	void FloorScript::OnCollisionStay(Collider * other)
