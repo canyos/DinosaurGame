@@ -55,6 +55,9 @@
     <ClInclude Include="pParticleScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="pBackgroundScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -117,6 +120,9 @@
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="pParticleScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="pBackgroundScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>

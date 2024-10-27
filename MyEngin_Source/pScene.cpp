@@ -26,7 +26,6 @@ namespace p {
 	}
 	void Scene::Update()
 	{
-		if (isEnd) return;
 
 		for (Layer* layer : mLayers) {
 			if (layer == nullptr) continue;

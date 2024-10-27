@@ -3,6 +3,7 @@
 #include "pTransform.h"
 #include "pTime.h"
 #include "pParticle.h"
+#include "pSceneManager.h"
 namespace p {
 	ParticleScript::ParticleScript()
 	{
@@ -14,18 +15,20 @@ namespace p {
 	{
 	}
 	void ParticleScript::Update()
-	{
-		Transform* tr = GetOwner()->GetComponent<Transform>();
-		Vector2 pos = tr->GetPosition();
-		GameObject* gameObj = GetOwner();
-		Particle* particle = (Particle*)gameObj;
-		float speed = particle->GetSpeed();
-		
-		pos.x -= Time::DeltaTime() * speed;
-		tr->SetPosition(pos);
+	{	
+		if (!SceneManager::GetActiveScene()->IsEnd()) {
+			Transform* tr = GetOwner()->GetComponent<Transform>();
+			Vector2 pos = tr->GetPosition();
+			GameObject* gameObj = GetOwner();
+			Particle* particle = (Particle*)gameObj;
+			float speed = particle->GetSpeed();
 
-		if (pos.x <= -100.0f) {
-			GetOwner()->Death();
+			pos.x -= Time::DeltaTime() * speed;
+			tr->SetPosition(pos);
+
+			if (pos.x <= -100.0f) {
+				GetOwner()->Death();
+			}
 		}
 	}
 	void ParticleScript::LateUpdate()

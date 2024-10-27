@@ -25,6 +25,7 @@
 #include "pBackGround.h"
 #include "pParticle.h"
 #include "pParticleScript.h"
+#include "pBackgroundScript.h"
 namespace p
 {
 	PlayScene::PlayScene()
@@ -117,12 +118,16 @@ namespace p
 		bgSr1->SetTexture(skyTexture);
 		bgSr1->SetSize(Vector2(34.0f,11.0f));
 
-		BackGround* bg2 = object::Instantiate<BackGround>(eLayerType::BackGround, Vector2(0.0f, 700.0f));
-		bg2->SetName(L"ground");
-		SpriteRenderer* bgSr2 = bg2->AddComponent<SpriteRenderer>();
-		graphics::Texture* groundTexture = Resources::Find<graphics::Texture>(L"Ground");
-		bgSr2->SetTexture(groundTexture);
-		bgSr2->SetSize(Vector2(34.0f, 4.2f));
+		for (int i = 0; i < 3; i++) {
+			BackGround* bg2 = object::Instantiate<BackGround>(eLayerType::BackGround, Vector2(0.0f+800.0f*i, 700.0f));
+			bg2->SetName(L"ground");
+			bg2->AddComponent<BackgroundScript>();
+			SpriteRenderer* bgSr2 = bg2->AddComponent<SpriteRenderer>();
+			graphics::Texture* groundTexture = Resources::Find<graphics::Texture>(L"Ground");
+			bgSr2->SetTexture(groundTexture);
+			bgSr2->SetSize(Vector2(17.0f, 4.2f));
+		}
+		
 
 		//오디오 재생
 		/*AudioSource* as = floor->AddComponent<AudioSource>();
@@ -229,7 +234,7 @@ namespace p
 			auto randNum = rockRand(mt);
 
 			Particle* rock = object::Instantiate<Particle>(enums::eLayerType::Particle);
-			rock->SetSpeed(350.0f);
+			rock->SetSpeed(250.0f);
 			graphics::Texture* rockTexture = Resources::Find<graphics::Texture>(rockName[randNum % 2]);
 
 			SpriteRenderer* rockSr = rock->AddComponent<SpriteRenderer>();
