@@ -24,9 +24,9 @@ namespace p
 		camera->AddComponent<CameraScript>();
 		renderer::mainCamera = cameraComp;
 		
-		Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
+		/*Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
 		TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
-		tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+		tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));*/
 
 		Scene::Initialize();
 	}
@@ -73,7 +73,7 @@ namespace p
 	{
 		Scene::Render(hdc);
 		
-		for (size_t i = 0; i < 50; i++)
+		for (size_t i = 0; i < 10; i++)
 		{
 			Vector2 pos = renderer::mainCamera->CalculatePosition
 			(
@@ -84,7 +84,7 @@ namespace p
 			LineTo(hdc, pos.x, 1000);
 		}
 
-		for (size_t i = 0; i < 50; i++)
+		for (size_t i = 0; i < 10; i++)
 		{
 			Vector2 pos = renderer::mainCamera->CalculatePosition
 			(
@@ -149,6 +149,10 @@ namespace p
 	}
 	void ToolScene::Load()
 	{
+		for (Tile* tile : mTiles) {
+			tile->Death();
+		}
+		mTiles = {};
 		OPENFILENAME ofn = {};
 		wchar_t  szFilePath[256] = { 0 };
 		ZeroMemory(&ofn, sizeof(ofn));

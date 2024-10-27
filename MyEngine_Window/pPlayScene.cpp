@@ -13,23 +13,18 @@
 #include "pCamera.h"
 #include "pRenderer.h"
 #include "pAnimator.h"
-#include "pCat.h"
-#include "pCatScript.h"
 #include "pBoxCollider2D.h"
 #include "pCollisionManager.h"
-#include "pTile.h"
-#include "pTilemapRenderer.h"
 #include "pRigidBody.h"
 #include "pFloor.h"
 #include "pFloorScript.h"
 #include "pUIManager.h"
-#include "pAudioClip.h"
-#include "pAudioListener.h"
-#include "pAudioSource.h"
 #include "pCactus.h"
 #include "pCactusScript.h"
 #include <random>
-
+#include "pBackGround.h"
+#include "pParticle.h"
+#include "pParticleScript.h"
 namespace p
 {
 	PlayScene::PlayScene()
@@ -79,7 +74,7 @@ namespace p
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
 		//object::DontDestroyOnLoad(mPlayer);
-		mPlayer->AddComponent<AudioListener>();
+		//mPlayer->AddComponent<AudioListener>();
 
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
@@ -103,45 +98,37 @@ namespace p
 		playerAnimator->PlayAnimation(L"run", true);
 		mPlayer->AddComponent<RigidBody>();
 		
-
-
+		//픽셀충돌
+		/*SpriteRenderer* floorSr = floor->AddComponent<SpriteRenderer>();
+		//floorSr->SetTexture(Resources::Find<graphics::Texture>(L"PixelMap"));
+		//plScript->SetPixelMapTexture(Resources::Find<graphics::Texture>(L"PixelMap"));*/
+		
 		Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(0.0f, 700.0f));
 		floor->SetName(L"Floor");
-		//SpriteRenderer* floorSr = floor->AddComponent<SpriteRenderer>();
-		//floorSr->SetTexture(Resources::Find<graphics::Texture>(L"PixelMap"));
-
-		//AudioSource* as = floor->AddComponent<AudioSource>();
-
 		BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
 		floorCol->SetSize(Vector2(1600.0f, 200.0f));
 		floor->AddComponent<FloorScript>();
+		
 
-		/*AudioClip* ac = Resources::Load<AudioClip>(L"BGSound", L"..\\Resources\\smw_bonus_game_end.wav");
+		BackGround* bg1 = object::Instantiate<BackGround>(eLayerType::BackGround, Vector2(0.0f, 0.0f));
+		bg1->SetName(L"Sky");
+		SpriteRenderer* bgSr1 = bg1->AddComponent<SpriteRenderer>();
+		graphics::Texture* skyTexture = Resources::Find<graphics::Texture>(L"Sky");
+		bgSr1->SetTexture(skyTexture);
+		bgSr1->SetSize(Vector2(34.0f,11.0f));
+
+		BackGround* bg2 = object::Instantiate<BackGround>(eLayerType::BackGround, Vector2(0.0f, 700.0f));
+		bg2->SetName(L"ground");
+		SpriteRenderer* bgSr2 = bg2->AddComponent<SpriteRenderer>();
+		graphics::Texture* groundTexture = Resources::Find<graphics::Texture>(L"Ground");
+		bgSr2->SetTexture(groundTexture);
+		bgSr2->SetSize(Vector2(34.0f, 4.2f));
+
+		//오디오 재생
+		/*AudioSource* as = floor->AddComponent<AudioSource>();
+		AudioClip* ac = Resources::Load<AudioClip>(L"BGSound", L"..\\Resources\\smw_bonus_game_end.wav");
 		as->SetClip(ac);
 		as->Play();*/
-
-		plScript->SetPixelMapTexture(Resources::Find<graphics::Texture>(L"PixelMap"));
-
-		/*///CAT
-		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
-		cat->AddComponent<CatScript>();
-		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
-		Animator* catAnimator = cat->AddComponent<Animator>(); 
-		BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
-		boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
-		catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
-		catAnimator->PlayAnimation(L"MushroomIdle", true);
-		cat->GetComponent<Transform>()->SetPosition(Vector2(360.0f, 420.0f));
-
-
-
-		//GameObject* sheet = object::Instantiate<GameObject>(enums::eLayerType::Particle);
-		//SpriteRenderer* sheetSR = sheet->AddComponent<SpriteRenderer>();
-
-
-		//graphcis::Texture* mrIdle = Resources::Find<graphcis::Texture>(L"MushroomIdle");
-		//sheetSR->SetTexture(mrIdle);
-		//Animator* playerAnimator = mPlayer->AddComponent<Animator>();*/
 
 		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init함수를 호출
 		Scene::Initialize();
@@ -150,22 +137,27 @@ namespace p
 	void PlayScene::Update()
 	{
 		Scene::Update();
-		time++;
-		std::wstring strs[3] = { L"Cactus A", L"Cactus B", L"Cactus C" };
-		
-		if (time % spawnTime == 0) {
+
+		if (isEnd)
+			return;
+		spawnTime++;
+		cloudTime++;
+		rockTime++;
+
+		if (spawnTime % spawnInterval == 0) {
 			std::random_device rd;
 			std::mt19937 mt(rd());
-			std::uniform_int_distribution<int> cactus(0, 2);
-			auto randNum = cactus(mt);
-			mCactus[randNum] = object::Instantiate<Cactus>(enums::eLayerType::Animal);
-			graphics::Texture* cactusATexture = Resources::Find<graphics::Texture>(strs[randNum]);
-			BoxCollider2D* cactusCollider = mCactus[randNum]->AddComponent<BoxCollider2D>();
+			std::uniform_int_distribution<int> cactusRand(0, 2);
+			auto randNum = cactusRand(mt);
 
-			SpriteRenderer* cactusSr = mCactus[randNum]->AddComponent<SpriteRenderer>();
+			Cactus* cactus = object::Instantiate<Cactus>(enums::eLayerType::Animal);
+			graphics::Texture* cactusATexture = Resources::Find<graphics::Texture>(cactusName[randNum]);
+			BoxCollider2D* cactusCollider = cactus->AddComponent<BoxCollider2D>();
+
+			SpriteRenderer* cactusSr = cactus->AddComponent<SpriteRenderer>();
 			cactusSr->SetTexture(cactusATexture);
-			Transform* cacTr = mCactus[randNum]->AddComponent<Transform>();
-			mCactus[randNum]->AddComponent<CactusScript>();
+			Transform* cacTr = cactus->AddComponent<Transform>();
+			cactus->AddComponent<CactusScript>();
 			
 			if (randNum == 0) {
 				cactusATexture->SetWidth(12);
@@ -192,10 +184,76 @@ namespace p
 				cactusCollider->SetOffset(Vector2::Zero);
 			}
 			
-			
-			std::uniform_int_distribution<int> randSpawnTime(700, 1000);
-			spawnTime = randSpawnTime(mt);
-			time = 0;
+			std::uniform_int_distribution<int> randSpawnInterval(30, 50);
+			spawnInterval = randSpawnInterval(mt);
+			spawnTime = 0;
+		}
+		
+		if (cloudTime % cloudInterval == 0) {
+			std::random_device rd;
+			std::mt19937 mt(rd());
+			std::uniform_int_distribution<int> cloudRand(0, 500);
+			auto randNum = cloudRand(mt);
+
+			Particle* cloud = object::Instantiate<Particle>(enums::eLayerType::Particle);
+			cloud->SetSpeed(150.0f);
+			graphics::Texture* cloudTexture = Resources::Find<graphics::Texture>(cloudName[randNum%2]);
+
+			SpriteRenderer* cloudSr = cloud->AddComponent<SpriteRenderer>();
+			cloudSr->SetTexture(cloudTexture);
+			Transform* cloudTr = cloud->AddComponent<Transform>();
+			cloud->AddComponent<ParticleScript>();
+
+			if (randNum%2 == 0) {
+				cloudTexture->SetWidth(20);
+				cloudTexture->SetHeight(11);
+				cloudTr->SetPosition(Vector2(1600.0f, randNum));
+				cloudTr->SetScale(Vector2(2.0f, 2.0f));
+			}
+			else if (randNum%2 == 1) {
+				cloudTexture->SetWidth(11);
+				cloudTexture->SetHeight(5);
+				cloudTr->SetPosition(Vector2(1600.0f, randNum));
+				cloudTr->SetScale(Vector2(4.0f, 4.0f));
+			}
+
+			std::uniform_int_distribution<int> randSpawnInterval(30, 50);
+			cloudInterval = randSpawnInterval(mt);
+			cloudTime = 0;
+		}
+
+		if (rockTime % rockInterval == 0) {
+			std::random_device rd;
+			std::mt19937 mt(rd());
+			std::uniform_int_distribution<int> rockRand(700, 800);
+			auto randNum = rockRand(mt);
+
+			Particle* rock = object::Instantiate<Particle>(enums::eLayerType::Particle);
+			rock->SetSpeed(350.0f);
+			graphics::Texture* rockTexture = Resources::Find<graphics::Texture>(rockName[randNum % 2]);
+
+			SpriteRenderer* rockSr = rock->AddComponent<SpriteRenderer>();
+			rockSr->SetTexture(rockTexture);
+			Transform* rockTr = rock->AddComponent<Transform>();
+			rock->AddComponent<ParticleScript>();
+
+			if (randNum % 2 == 0) {
+				rockTexture->SetWidth(48);
+				rockTexture->SetHeight(24);
+				rockTr->SetPosition(Vector2(1600.0f, randNum));
+				rockTr->SetScale(Vector2(2.0f, 4.0f));
+			}
+
+			else if (randNum % 2 == 1) {
+				rockTexture->SetWidth(16);
+				rockTexture->SetHeight(16);
+				rockTr->SetPosition(Vector2(1600.0f, randNum));
+				rockTr->SetScale(Vector2(6.0f, 6.0f));
+			}
+
+			std::uniform_int_distribution<int> randSpawnInterval(30, 50);
+			rockInterval = randSpawnInterval(mt);
+			rockTime = 0;
 		}
 	}
 	void PlayScene::LateUpdate()

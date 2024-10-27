@@ -1,4 +1,5 @@
 #include "pLayer.h"
+#include "pSceneManager.h"
 namespace p {
 	Layer::Layer() : mGameObjects {}
 	{
@@ -50,6 +51,7 @@ namespace p {
 				continue;
 			if (gameObj->IsActive() == false)
 				continue;
+
 			gameObj->Render(hdc);
 		}
 			
@@ -61,8 +63,8 @@ namespace p {
 			; iter != mGameObjects.end()
 			; )
 		{
-			GameObject::eState active = (*iter)->GetState();
-			if (active == GameObject::eState::Dead)
+			GameObject::eState state = (*iter)->GetState();
+			if (state == GameObject::eState::Dead)
 			{
 				GameObject* deathObj = (*iter);
 				iter = mGameObjects.erase(iter);
@@ -83,6 +85,7 @@ namespace p {
 			return;
 		mGameObjects.push_back(gameObject);
 	}
+
 	void Layer::EraseGameObjects(GameObject * eraseGameObj)
 	{
 		mGameObjects.erase(

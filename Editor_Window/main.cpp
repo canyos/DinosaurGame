@@ -152,8 +152,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
-   //ShowWindow(ToolHWnd, nCmdShow);
-   
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
    srand(time(NULL));

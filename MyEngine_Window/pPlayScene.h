@@ -19,9 +19,19 @@ namespace p {
 		
 	private:
 		class Player* mPlayer;
-		class Cactus* mCactus[3];
-		int time = 0;
-		int spawnTime = 1;
+
+		std::wstring cactusName[3] = { L"Cactus A", L"Cactus B", L"Cactus C" };
+		int spawnTime = 0;
+		int spawnInterval = 1;
+
+		std::wstring cloudName[2] = { L"Cloud A", L"Cloud B" };
+		int cloudTime = 0;
+		int cloudInterval = 20;
+
+		std::wstring rockName[2] = { L"Rock A", L"Rock B" };
+		int rockTime = 0;
+		int rockInterval = 40;
+
 		
 	};
 }

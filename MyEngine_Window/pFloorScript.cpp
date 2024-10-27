@@ -34,9 +34,15 @@ namespace p {
 		float len = fabs(playerTr->GetPosition().y - floorTr->GetPosition().y);
 		float scale = fabs(playerTr->GetPosition().y + playerCol->GetSize().y - floorTr->GetPosition().y);
 
-		if (len < scale) {
-			Vector2 playerPos = playerTr->GetPosition();
-			playerPos.y -= (scale - len) -1.0f;
+		//if (len < scale) {
+		//	Vector2 playerPos = playerTr->GetPosition();
+		//	playerPos.y -= (scale - len) -1.0f;
+		//	playerTr->SetPosition(playerPos);
+		//}
+
+		Vector2 playerPos = playerTr->GetPosition();
+		if (playerPos.y >= 610) {
+			playerPos.y = 609;
 			playerTr->SetPosition(playerPos);
 		}
 
@@ -45,6 +51,12 @@ namespace p {
 	}
 	void FloorScript::OnCollisionStay(Collider * other)
 	{
+		/*Transform* playerTr = other->GetOwner()->GetComponent<Transform>();
+		Vector2 playerPos = playerTr->GetPosition();
+		if (playerPos.y >= 610) {
+			playerPos.y = 609;
+			playerTr->SetPosition(playerPos);
+		}*/
 	}
 	void FloorScript::OnCollisionExit(Collider * other)
 	{

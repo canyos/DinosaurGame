@@ -29,8 +29,10 @@ namespace p {
 		{
 			if (comp == nullptr)
 				continue;
+
 			comp->Initialize();
 		}
+		
 	}
 
 

@@ -138,6 +138,7 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="LoadResources.h" />
+    <ClInclude Include="pBackGround.h" />
     <ClInclude Include="pCactus.h" />
     <ClInclude Include="pCactusScript.h" />
     <ClInclude Include="pCameraScript.h" />
@@ -146,6 +147,8 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
     <ClInclude Include="pFloor.h" />
     <ClInclude Include="pFloorScript.h" />
     <ClInclude Include="pLoadScene.h" />
+    <ClInclude Include="pParticle.h" />
+    <ClInclude Include="pParticleScript.h" />
     <ClInclude Include="pPlayer.h" />
     <ClInclude Include="pPlayerScript.h" />
     <ClInclude Include="pPlayScene.h" />
@@ -154,6 +157,7 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
     <ClInclude Include="pToolScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="pBackGround.cpp" />
     <ClCompile Include="pCactus.cpp" />
     <ClCompile Include="pCactusScript.cpp" />
     <ClCompile Include="pCameraScript.cpp" />
@@ -161,6 +165,8 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
     <ClCompile Include="pCatScript.cpp" />
     <ClCompile Include="pFloor.cpp" />
     <ClCompile Include="pFloorScript.cpp" />
+    <ClCompile Include="pParticle.cpp" />
+    <ClCompile Include="pParticleScript.cpp" />
     <ClCompile Include="pPlayer.cpp" />
     <ClCompile Include="pPlayerScript.cpp" />
     <ClCompile Include="pPlayScene.cpp" />

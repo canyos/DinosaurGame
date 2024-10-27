@@ -46,6 +46,15 @@
     <ClInclude Include="pCactusScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="pBackGround.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="pParticle.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="pParticleScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -99,6 +108,15 @@
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="pCactusScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="pBackGround.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="pParticle.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="pParticleScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>

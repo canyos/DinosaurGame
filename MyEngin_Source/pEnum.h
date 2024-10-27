@@ -10,9 +10,9 @@ namespace p
 			//character
 			Tile,
 			Floor,
+			Particle,
 			Animal,
 			Player,
-			Particle,
 			Max = 16,
 		};
 

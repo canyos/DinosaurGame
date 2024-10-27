@@ -118,10 +118,12 @@ namespace p {
 		//backbuffer를 원본 버퍼로 복사
 		copyRenderTarget(mBackHdc, mHdc);
 	}
+
 	void Application::Destroy()
 	{
 		SceneManager::Destroy();
 	}
+
 	void Application::Release() {
 		SceneManager::Release();
 		UIManager::Release();

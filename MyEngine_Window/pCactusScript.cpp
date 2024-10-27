@@ -28,7 +28,9 @@ namespace p {
 		pos.x -= Time::DeltaTime() * 250.0f;
 		tr->SetPosition(pos);
 		
-		
+		if (pos.x <= -100.0f) {
+			GetOwner()->Death();
+		}
 	}
 	void CactusScript::LateUpdate()
 	{

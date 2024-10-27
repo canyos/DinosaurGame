@@ -24,6 +24,8 @@ namespace p {
 
 	private:
 		std::vector<Layer*> mLayers;
+
+	protected:
 		bool isEnd;
 
 	};
