@@ -15,8 +15,10 @@ namespace p
 		virtual void OnLateUpdate() override;
 		virtual void OnRender(HDC hdc) override;
 		virtual void OnClear() override;
+
+		
 	private:
-		graphics::Texture* mTexture;
+		
 	};
 }
 

@@ -58,6 +58,7 @@
     <ClInclude Include="pBackgroundScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -71,6 +72,9 @@
     </Filter>
     <Filter Include="Load">
       <UniqueIdentifier>{a05821c2-b3f9-4b54-94d6-a25a543d9600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{c93af7aa-d13e-4233-866f-5ac49d2dec17}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +129,48 @@
     <ClCompile Include="pBackgroundScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\dinosaur\UI Over.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Back A.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Back B.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Cactus A.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Cactus B.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Cactus C.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Cloud A.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Cloud B.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Ground.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Player.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\Sky.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\UI Btn Down.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\dinosaur\UI Btn On.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="bitmap1.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MyEngine_Window.rc" />

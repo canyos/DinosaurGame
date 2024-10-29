@@ -15,19 +15,21 @@ namespace p {
 
 		virtual void OnEnter();//Scene에 들어가거나 
 		virtual void OnExit();//나갈때 필요없는거 처리
-
+		
+		void Reset();
 		void stopUpdate() { isEnd = true; }
 		bool IsEnd() { return isEnd; }
 		void AddGameObject(GameObject* gameObject, enums::eLayerType type);
 		void EraseGameObject(GameObject* gameObj);
 		Layer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
+		float GetTime() { return mTime; }
 
 	private:
 		std::vector<Layer*> mLayers;
-
+		float mTime;
 	protected:
 		bool isEnd;
-
+		bool prevEnd;
 	};
 }
 

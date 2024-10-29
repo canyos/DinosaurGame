@@ -3,7 +3,10 @@
 #include "pUIButton.h"
 #include "pSceneManager.h"
 #include <string>
-
+#include "pResources.h"
+#include "pScene.h"
+#include "pUITextButton.h"
+#include "pUITextureButton.h"
 namespace p {
 	std::unordered_map<std::wstring, UIBase*> UIManager::mUIs = {};
 	std::stack<UIBase*> UIManager::mUIBases = {};
@@ -11,7 +14,7 @@ namespace p {
 	UIBase* UIManager::mActiveUI = nullptr;
 	void UIManager::Initialize()
 	{
-		UIButton* startButton = new UIButton();
+		UITextButton* startButton = new UITextButton();
 		startButton->SetUIName(L"Start Button");
 		startButton->SetPos(Vector2(100.0f, 100.0f));
 		startButton->SetSize(Vector2(200.0f, 50.0f));
@@ -21,7 +24,7 @@ namespace p {
 
 		mUIs.insert(std::make_pair(L"Start Button", startButton));
 
-		UIButton* exitButton = new UIButton();
+		UITextButton* exitButton = new UITextButton();
 		exitButton->SetUIName(L"Exit Button");
 		exitButton->SetPos(Vector2(100.0f, 400.0f));
 		exitButton->SetSize(Vector2(200.0f, 50.0f));
@@ -29,6 +32,32 @@ namespace p {
 			PostQuitMessage(0);
 			});
 		mUIs.insert(std::make_pair(L"Exit Button", exitButton));
+
+		UIHUD* gameOver = new UIHUD();
+		graphics::Texture* gameOverTexture = Resources::Find<graphics::Texture>(L"GameOver");
+		gameOverTexture->SetWidth(270.0f);
+		gameOverTexture->SetHeight(42.0f);
+		
+		gameOver->SetTexture(gameOverTexture);
+		gameOver->SetUIName(L"GameOver");
+		gameOver->SetName(L"GameOver");
+		gameOver->SetPos(Vector2(665.0f, 408.0f));
+		gameOver->SetSize(Vector2(6.0f, 6.0f));
+		mUIs.insert(std::make_pair(L"GameOver", gameOver));
+
+		UITextureButton* restart = new UITextureButton();
+		graphics::Texture* restartTexture = Resources::Find<graphics::Texture>(L"BtnUp");
+		restart->SetUIName(L"Restart");
+		restart->SetTexture(restartTexture);
+
+		restart->SetPos(Vector2(1000.0f, 350.0f));
+		restart->SetSize(Vector2(6.0f, 6.0f));
+		restart->SetClickEvent([]() {
+			Scene* activeScene = SceneManager::GetActiveScene();
+			activeScene->Reset();
+		});
+		mUIs.insert(std::make_pair(L"Restart", restart));
+
 	}
 	void UIManager::OnLoad(std::wstring uiName)
 	{
@@ -147,7 +176,7 @@ namespace p {
 			uiBase = mUIBases.top();
 			mUIBases.pop();
 
-			if (uiBase->GetUIName() != name)//다르면 템프에 넣음
+			if (uiBase->GetUIName().compare( name))//다르면 템프에 넣음
 			{
 				tempStack.push(uiBase);
 				continue;

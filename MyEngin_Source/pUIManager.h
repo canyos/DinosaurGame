@@ -1,7 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
 #include "pUIBase.h"
-
 namespace p {
 	using namespace enums;
 	class UIManager

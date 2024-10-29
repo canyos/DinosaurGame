@@ -22,10 +22,11 @@ namespace p {
 	}
 	void BackgroundScript::Update()
 	{
-		if (!SceneManager::GetActiveScene()->IsEnd()) {
+		Scene* activeScene = SceneManager::GetActiveScene();
+		if (!activeScene->IsEnd()) {
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
-			pos.x -= Time::DeltaTime() * 250.0f;
+			pos.x -= Time::DeltaTime() * 250.0f + activeScene->GetTime();
 
 			if (pos.x <= -800.0f) {
 				pos.x += 2400.0f;

@@ -4,8 +4,18 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <unordered_map>
 #include <functional>
-#include <filesystem>
+
+// filesystem 관련 설정 추가
+#if _MSC_VER >= 1920     // Visual Studio 2019 이상
+	#include <filesystem>
+	namespace fs = std::filesystem;
+#else
+	#include <experimental/filesystem>
+	namespace fs = std::experimental::filesystem;
+#endif
+
 #include <math.h>
 #include <bitset>
 #include <stack>

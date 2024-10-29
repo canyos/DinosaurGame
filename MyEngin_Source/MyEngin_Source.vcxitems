@@ -49,6 +49,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIHUD.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUITextButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUITextureButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UITextButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UITextureButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -89,5 +93,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)pUIHUD.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pUIManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pUIBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUITextButton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUITextureButton.h" />
   </ItemGroup>
 </Project>

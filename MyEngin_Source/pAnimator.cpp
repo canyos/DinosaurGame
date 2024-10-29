@@ -91,9 +91,9 @@ namespace p {
 			return;
 		
 		int fileCount = 0;
-		std::filesystem::path fs(path);
+		fs::path fs(path);
 		std::vector<graphics::Texture*> images = {};
-		for (auto& p : std::filesystem::recursive_directory_iterator(fs))
+		for (auto& p : fs::recursive_directory_iterator(fs))
 		{
 			std::wstring fileName = p.path().filename();
 			std::wstring fullName = p.path();

@@ -21,7 +21,6 @@ namespace p {
 		virtual void OnClear() override;
 
 	private:
-		graphics::Texture* mTexture;
 		Event mOnClick;
 	};
 }

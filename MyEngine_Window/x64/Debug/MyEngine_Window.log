@@ -1,6 +1,3 @@
-﻿  pScene.cpp
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-BackgroundScript.obj : warning LNK4221: 이 개체 파일은 이전에 정의되지 않은 공용 기호를 정의하지 않으므로 이 라이브러리를 사용하는 어떠한 링크 작업에도 사용되지 않습니다.
-  MyEngine_Window.vcxproj -> C:\Users\com100\Documents\GitHub\DinosaurGame\x64\Debug\MyEngine_Window.lib
+﻿  MyEngine_Window.vcxproj -> C:\Users\com100\Documents\GitHub\DinosaurGame\x64\Debug\MyEngine_Window.lib
           1개 파일이 복사되었습니다.
           1개 파일이 복사되었습니다.

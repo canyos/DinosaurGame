@@ -141,6 +141,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr); //szTitle이 이름, WS_OVERLAPPEDWINDO는 타입
 																			//시작할때 위치xy, 가로세로크기 설정가능
    
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+   srand(time(NULL));
+   p::LoadResources();
 
    application.Initialize(hWnd, width, height);
 
@@ -153,9 +156,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
 
 
-   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
-   srand(time(NULL));
-   p::LoadResources();
+   
    p::LoadScenes();
    
    p::Scene* activeScene = p::SceneManager::GetActiveScene();

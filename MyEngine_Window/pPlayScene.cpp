@@ -65,7 +65,8 @@ namespace p
 			//mTiles.push_back(tile);
 		}
 		fclose(pFile);*/
-		
+		isEnd = false;
+
 		//main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -265,6 +266,15 @@ namespace p
 	{
 		Scene::LateUpdate();
 		
+		if (prevEnd == false && isEnd == true) {
+			UIManager::Push(L"GameOver");
+			UIManager::Push(L"Restart");
+		}
+		else if (prevEnd == true && isEnd == false){
+			UIManager::Pop(L"GameOver");
+			UIManager::Pop(L"Restart");
+		}
+		prevEnd = isEnd;
 	}
 	void PlayScene::Render(HDC hdc)
 	{
@@ -278,6 +288,7 @@ namespace p
 
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
+		isEnd = false;
 	}
 	void PlayScene::OnExit()
 	{

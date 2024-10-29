@@ -5,6 +5,7 @@
 #include "pCollider.h"
 #include "pTransform.h"
 #include "pGameObject.h"
+#include <map>
 
 namespace p {
 	std::bitset<(UINT)eLayerType::Max> CollisionManager::mCollisionLayerMatrix[(UINT)eLayerType::Max] = {};

@@ -1,6 +1,8 @@
 #pragma once
 #include "pEntity.h"
 #include <string>
+#include "pTexture.h"
+
 namespace p {
 	using namespace enums;
 	class UIBase:public Entity
@@ -50,12 +52,14 @@ namespace p {
 		void SetPos(Vector2 position) { mPosition = position; }
 		Vector2 GetSize() { return mSize; }
 		void SetSize(Vector2 size) { mSize = size; }
+		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
 
 	protected:
 		Vector2 mPosition;
 		Vector2 mSize;
 		bool mbMouseOn;
 		std::wstring UIName;
+		graphics::Texture* mTexture;
 
 	private:
 		bool mbFulllScreen;

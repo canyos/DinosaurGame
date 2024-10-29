@@ -47,9 +47,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -84,8 +84,9 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)\External\Library\Fmod\Debug\fmodL.dll" "$(SolutionDir)\x64\Debug\"
-copy "$(SolutionDir)\External\Library\Fmod\Debug\fmodstudioL.dll" "$(SolutionDir)\x64\Debug\"
+      <Command>copy "$(SolutionDir)\External\Library\Fmod\Debug\fmod.dll" "$(SolutionDir)\x64\Debug\"
+
+copy "$(SolutionDir)\External\Library\Fmod\Debug\fmodstudio.dll" "$(SolutionDir)\x64\Debug\"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -132,44 +133,74 @@ copy "$(SolutionDir)\External\Library\Fmod\Debug\fmodstudioL.dll" "$(SolutionDir
     </Link>
     <PostBuildEvent>
       <Command>copy "$(SolutionDir)\External\Library\Fmod\Release\fmod.dll" "$(SolutionDir)\x64\Release\"
+
 copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDir)\x64\Release\"
+xcopy "$(SolutionDir)\MyEngine_Window\Resources" "$(SolutionDir)\x64\Release\Resources" /E /I /Y
 </Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="LoadResources.h" />
-    <ClInclude Include="pBackGround.h" />
+    <ClInclude Include="pBackGround.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="pBackgroundScript.h" />
-    <ClInclude Include="pCactus.h" />
+    <ClInclude Include="pCactus.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="pCactusScript.h" />
     <ClInclude Include="pCameraScript.h" />
-    <ClInclude Include="pCat.h" />
+    <ClInclude Include="pCat.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="pCatScript.h" />
-    <ClInclude Include="pFloor.h" />
+    <ClInclude Include="pFloor.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="pFloorScript.h" />
     <ClInclude Include="pLoadScene.h" />
-    <ClInclude Include="pParticle.h" />
+    <ClInclude Include="pParticle.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="pParticleScript.h" />
-    <ClInclude Include="pPlayer.h" />
+    <ClInclude Include="pPlayer.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="pPlayerScript.h" />
     <ClInclude Include="pPlayScene.h" />
     <ClInclude Include="pTile.h" />
     <ClInclude Include="pTitleScene.h" />
     <ClInclude Include="pToolScene.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pBackGround.cpp" />
+    <ClCompile Include="pBackGround.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="pBackgroundScript.cpp" />
-    <ClCompile Include="pCactus.cpp" />
+    <ClCompile Include="pCactus.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="pCactusScript.cpp" />
     <ClCompile Include="pCameraScript.cpp" />
-    <ClCompile Include="pCat.cpp" />
+    <ClCompile Include="pCat.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="pCatScript.cpp" />
-    <ClCompile Include="pFloor.cpp" />
+    <ClCompile Include="pFloor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="pFloorScript.cpp" />
-    <ClCompile Include="pParticle.cpp" />
+    <ClCompile Include="pParticle.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="pParticleScript.cpp" />
-    <ClCompile Include="pPlayer.cpp" />
+    <ClCompile Include="pPlayer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="pPlayerScript.cpp" />
     <ClCompile Include="pPlayScene.cpp" />
     <ClCompile Include="pTile.cpp" />
@@ -178,6 +209,48 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MyEngine_Window.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bitmap1.bmp" />
+    <Image Include="Resources\dinosaur\Back A.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Back B.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Cactus A.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Cactus B.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Cactus C.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Cloud A.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Cloud B.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Ground.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Player.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\Sky.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\UI Btn Down.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\UI Btn On.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Resources\dinosaur\UI Over.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </Image>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -16,14 +16,15 @@ namespace p {
 	}
 	void ParticleScript::Update()
 	{	
-		if (!SceneManager::GetActiveScene()->IsEnd()) {
+		Scene* activeScene = SceneManager::GetActiveScene();
+		if (!activeScene->IsEnd()) {
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
 			GameObject* gameObj = GetOwner();
 			Particle* particle = (Particle*)gameObj;
 			float speed = particle->GetSpeed();
 
-			pos.x -= Time::DeltaTime() * speed;
+			pos.x -= Time::DeltaTime() * speed + activeScene->GetTime();
 			tr->SetPosition(pos);
 
 			if (pos.x <= -100.0f) {

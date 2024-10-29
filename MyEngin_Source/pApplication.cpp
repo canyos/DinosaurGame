@@ -112,8 +112,9 @@ namespace p {
 		
 		Time::Render(mBackHdc);
 		CollisionManager::Render(mBackHdc);
-		UIManager::Render(mBackHdc);
+		
 		SceneManager::Render(mBackHdc);
+		UIManager::Render(mBackHdc);
 
 		//backbuffer를 원본 버퍼로 복사
 		copyRenderTarget(mBackHdc, mHdc);
