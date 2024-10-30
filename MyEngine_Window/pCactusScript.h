@@ -17,8 +17,8 @@ namespace p {
 		void OnCollisionStay(Collider* other);
 		void OnCollisionExit(Collider* other);
 	private:
-		
-	
+		float deltaX = 0;
+		int x = 0;
 	private:
 
 	};

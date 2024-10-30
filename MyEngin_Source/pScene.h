@@ -26,8 +26,8 @@ namespace p {
 
 	private:
 		std::vector<Layer*> mLayers;
-		float mTime;
 	protected:
+		float mTime;
 		bool isEnd;
 		bool prevEnd;
 	};

@@ -170,7 +170,6 @@
     <Image Include="Resources\dinosaur\UI Btn On.png">
       <Filter>Resources</Filter>
     </Image>
-    <Image Include="bitmap1.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MyEngine_Window.rc" />

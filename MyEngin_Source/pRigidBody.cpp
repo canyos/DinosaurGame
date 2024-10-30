@@ -2,6 +2,9 @@
 #include "pTime.h"
 #include "pTransform.h"
 #include "pGameObject.h"
+#include "pSceneManager.h"
+#include "pScene.h"
+
 namespace p {
 	RigidBody::RigidBody()
 		:Component(enums::eComponentType::RigidBody),
@@ -23,6 +26,7 @@ namespace p {
 	}
 	void RigidBody::Update()
 	{
+
 		//f = ma
 		mAcceleration = mForce / mMass;
 		//속도에 가속도 더함

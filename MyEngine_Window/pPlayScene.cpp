@@ -66,6 +66,7 @@ namespace p
 		}
 		fclose(pFile);*/
 		isEnd = false;
+		mTime = 0.0f;
 
 		//main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));

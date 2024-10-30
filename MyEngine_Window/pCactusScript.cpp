@@ -9,6 +9,7 @@
 #include "pCollider.h"
 #include "pCollisionManager.h"
 #include "pSceneManager.h"
+
 namespace p {
 	CactusScript::CactusScript()
 		
@@ -27,10 +28,20 @@ namespace p {
 		if (!activeScene->IsEnd()) {
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
-			pos.x -= Time::DeltaTime() * 250.0f + +activeScene->GetTime();
+			BoxCollider2D* collider = GetOwner()->GetComponent<BoxCollider2D>();
+			Vector2 colSize = collider->GetSize();
+
+			collider->SetSize(Vector2(colSize.x - deltaX / 100.0f, colSize.y)); //원래크기로
+			//새로 이동할 거리 계산 후 이동
+			deltaX = min(500.0f, 1.0* max(Time::DeltaTime() * 250.0f, Time::DeltaTime() * 250.0f + activeScene->GetTime()*2.5f));
+			pos.x -= deltaX;
 			tr->SetPosition(pos);
 
-			if (pos.x <= -100.0f) {
+			colSize = collider->GetSize();
+			//이동한 경로만큼 collider크기 늘려줌
+			collider->SetSize(Vector2(colSize.x + deltaX / 100.0f, colSize.y));
+
+			if (pos.x <= -300.0f) {
 				GetOwner()->Death();
 			}
 		}		

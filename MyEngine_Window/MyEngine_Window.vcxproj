@@ -84,9 +84,9 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)\External\Library\Fmod\Debug\fmod.dll" "$(SolutionDir)\x64\Debug\"
+      <Command>copy "$(SolutionDir)\External\Library\Fmod\Debug\fmodL.dll" "$(SolutionDir)\x64\Debug\"
 
-copy "$(SolutionDir)\External\Library\Fmod\Debug\fmodstudio.dll" "$(SolutionDir)\x64\Debug\"
+copy "$(SolutionDir)\External\Library\Fmod\Debug\fmodstudioL.dll" "$(SolutionDir)\x64\Debug\"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -211,7 +211,6 @@ xcopy "$(SolutionDir)\MyEngine_Window\Resources" "$(SolutionDir)\x64\Release\Res
     <ResourceCompile Include="MyEngine_Window.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="bitmap1.bmp" />
     <Image Include="Resources\dinosaur\Back A.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </Image>

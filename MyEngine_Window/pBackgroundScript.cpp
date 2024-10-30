@@ -26,7 +26,7 @@ namespace p {
 		if (!activeScene->IsEnd()) {
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
-			pos.x -= Time::DeltaTime() * 250.0f + activeScene->GetTime();
+			pos.x -= min(500.0f,1.0* max(Time::DeltaTime() * 250.0f,Time::DeltaTime() * 250.0f + activeScene->GetTime()*2.5f));
 
 			if (pos.x <= -800.0f) {
 				pos.x += 2400.0f;

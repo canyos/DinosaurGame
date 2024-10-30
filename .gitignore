@@ -2,3 +2,5 @@
 *.obj
 *.tlog
 *.log
+*.lib
+x64/Release/MyEngine_Window.lib
