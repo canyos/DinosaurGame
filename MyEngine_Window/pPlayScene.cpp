@@ -26,11 +26,24 @@
 #include "pParticle.h"
 #include "pParticleScript.h"
 #include "pBackgroundScript.h"
+
 namespace p
 {
 	PlayScene::PlayScene()
-		
 	{
+		hFont = CreateFont(
+			24,                // 글꼴 크기 (높이)
+			0,                 // 너비 (0이면 자동 비율 유지)
+			0, 0,              // 각도
+			FW_BOLD,           // 굵기
+			FALSE, FALSE, FALSE, // 기울임, 밑줄, 취소선
+			DEFAULT_CHARSET,   // 문자 집합
+			OUT_DEFAULT_PRECIS,
+			CLIP_DEFAULT_PRECIS,
+			DEFAULT_QUALITY,
+			DEFAULT_PITCH | FF_SWISS,
+			L"Arial");         // 글꼴 이름
+
 	}
 	PlayScene::~PlayScene()
 	{
@@ -67,6 +80,7 @@ namespace p
 		fclose(pFile);*/
 		isEnd = false;
 		mTime = 0.0f;
+		score = 0;
 
 		//main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
@@ -270,6 +284,7 @@ namespace p
 		if (prevEnd == false && isEnd == true) {
 			UIManager::Push(L"GameOver");
 			UIManager::Push(L"Restart");
+			score = mTime;
 		}
 		else if (prevEnd == true && isEnd == false){
 			UIManager::Pop(L"GameOver");
@@ -280,8 +295,17 @@ namespace p
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-		/*wchar_t str[50] = L"Play Scene";
-		TextOutW(hdc, 0, 0, str, lstrlenW(str));*/
+		if (isEnd) {
+			wchar_t str[50] = L"";
+			swprintf_s(str, 50, L"score : %d ", score);
+			int len = wcsnlen_s(str, 50);
+			SetBkMode(hdc, TRANSPARENT);
+			HFONT hOldFont = (HFONT)SelectObject(hdc, hFont);
+			TextOutW(hdc, 780, 500, str, len);
+			SelectObject(hdc, hOldFont);
+			SetBkMode(hdc, OPAQUE);
+		}
+
 	}
 	void PlayScene::OnEnter()
 	{

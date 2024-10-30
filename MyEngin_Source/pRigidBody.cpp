@@ -41,7 +41,8 @@ namespace p {
 		}
 		else {
 			//공중에있음
-			mVelocity += mGravity * Time::DeltaTime();
+			float time = 1.0f + SceneManager::GetActiveScene()->GetTime()/100;
+			mVelocity += mGravity * time * Time::DeltaTime();
 		}
 
 		//최대 속도 제한

@@ -19,6 +19,8 @@ namespace p {
 		
 	private:
 		class Player* mPlayer;
+		int score;
+		HFONT hFont;
 
 		std::wstring cactusName[3] = { L"Cactus A", L"Cactus B", L"Cactus C" };
 		int spawnTime = 0;

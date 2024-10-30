@@ -1,9 +1,11 @@
 #include "pScene.h"
 #include "pCollisionManager.h"
-#include"pTime.h"
+#include "pTime.h"
+
 namespace p {
 	Scene::Scene() :mLayers{}, isEnd(false), prevEnd(false),mTime(0.0f)
 	{
+
 		mLayers.resize((UINT)enums::eLayerType::Max);
 		for (int i = 0; i < (UINT)enums::eLayerType::Max; i++) {
 			mLayers[i] = new Layer();
