@@ -28,7 +28,7 @@ namespace p {
 		if (!activeScene->IsEnd()) {
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
-			BoxCollider2D* collider = GetOwner()->GetComponent<BoxCollider2D>();
+			BoxCollider2D* collider = (BoxCollider2D*) ((GetOwner()->GetColliders())[0]);
 			Vector2 colSize = collider->GetSize();
 
 			collider->SetSize(Vector2(colSize.x - deltaX / 100.0f, colSize.y)); //원래크기로

@@ -8,18 +8,25 @@ namespace p {
 		 mLayerType(eLayerType::None)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
+		mColliders = {};
 		InitializeTransform();
 	}
 
 	GameObject::~GameObject()
 	{
-		
 		for (Component* comp : mComponents)
 		{
 			if (comp == nullptr)
 				continue;
 			delete comp;
 			comp = nullptr;
+		}
+		for (Collider* col : mColliders)
+		{
+			if (col == nullptr)
+				continue;
+			delete col;
+			col = nullptr;
 		}
 	}
 
@@ -32,7 +39,13 @@ namespace p {
 
 			comp->Initialize();
 		}
-		
+		for (Collider* col : mColliders)
+		{
+			if (col == nullptr)
+				continue;
+
+			col->Initialize();
+		}
 	}
 
 
@@ -44,6 +57,12 @@ namespace p {
 				continue;
 			comp->Update();
 		}
+		for (Collider* col : mColliders)
+		{
+			if (col == nullptr)
+				continue;
+			col->Update();
+		}
 	}
 
 	void GameObject::LateUpdate()
@@ -54,6 +73,12 @@ namespace p {
 				continue;
 			comp->LateUpdate();
 		}
+		for (Collider* col : mColliders)
+		{
+			if (col == nullptr)
+				continue;
+			col->LateUpdate();
+		}
 	}
 
 	void GameObject::Render(HDC hdc)
@@ -63,6 +88,12 @@ namespace p {
 			if (comp == nullptr)
 				continue;
 			comp->Render(hdc);
+		}
+		for (Collider* col : mColliders)
+		{
+			if (col == nullptr)
+				continue;
+			col->Render(hdc);
 		}
 	}
 	void GameObject::InitializeTransform() {

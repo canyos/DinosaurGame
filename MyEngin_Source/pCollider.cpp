@@ -3,11 +3,10 @@
 #include "pGameObject.h"
 namespace p {
 	UINT32 Collider::mCollisionID = 1;
-	Collider::Collider(eColliderType type)
-		:Component(enums::eComponentType::Collider),
+	Collider::Collider(eColliderType type):
 		mType(type),
 		mID(mCollisionID++),
-		mSize(Vector2::One)
+		Owner(nullptr)
 	{
 	}
 	Collider::~Collider()

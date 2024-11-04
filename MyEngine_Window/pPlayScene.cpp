@@ -94,9 +94,12 @@ namespace p
 		//mPlayer->AddComponent<AudioListener>();
 
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
-		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
-		collider->SetSize(Vector2(0.9f, 0.8f));
+		BoxCollider2D* collider = mPlayer->AddCollider<BoxCollider2D>();
+		collider->SetSize(Vector2(0.9f, 0.6f));
 		collider->SetOffset(Vector2(0.0f, 0.0f));
+		BoxCollider2D* collider2 = mPlayer->AddCollider<BoxCollider2D>();
+		collider2->SetSize(Vector2(0.7f, 0.8f));
+		collider2->SetOffset(Vector2(0.0f, 0.0f));
 
 		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -122,7 +125,7 @@ namespace p
 		
 		Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(0.0f, 700.0f));
 		floor->SetName(L"Floor");
-		BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
+		BoxCollider2D* floorCol = floor->AddCollider<BoxCollider2D>();
 		floorCol->SetSize(Vector2(1600.0f, 200.0f));
 		floor->AddComponent<FloorScript>();
 		
@@ -173,7 +176,7 @@ namespace p
 
 			Cactus* cactus = object::Instantiate<Cactus>(enums::eLayerType::Animal);
 			graphics::Texture* cactusATexture = Resources::Find<graphics::Texture>(cactusName[randNum]);
-			BoxCollider2D* cactusCollider = cactus->AddComponent<BoxCollider2D>();
+			BoxCollider2D* cactusCollider = cactus->AddCollider<BoxCollider2D>();
 
 			SpriteRenderer* cactusSr = cactus->AddComponent<SpriteRenderer>();
 			cactusSr->SetTexture(cactusATexture);

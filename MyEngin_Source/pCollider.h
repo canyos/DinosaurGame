@@ -2,7 +2,7 @@
 #include "pComponent.h"
 
 namespace p {
-	class Collider: public Component
+	class Collider
 	{
 	public:
 		Collider(eColliderType type);
@@ -20,15 +20,18 @@ namespace p {
 		Vector2 GetOffset() { return mOffset; }
 		void SetOffset(Vector2 offset) { mOffset = offset; }
 		UINT32 GetID() { return mID; }
-		Vector2 GetSize() { return mSize; }
-		void SetSize(Vector2 size) { mSize = size; }
+
 		eColliderType GetColliderType() { return mType; }
+		GameObject* GetOwner() { return Owner; }
+		void SetOwner(GameObject* obj) { Owner = obj; }
+
 	private:
 		Vector2 mOffset;
 		static UINT32 mCollisionID;
 		UINT32 mID;
-		Vector2 mSize;
+		
 		eColliderType mType;
+		GameObject* Owner;
 	};
 }
 

@@ -56,26 +56,32 @@ namespace p {
 		const std::vector<GameObject*>& rights = SceneManager::GetGameObjects(right);
 
 		for (GameObject* left : lefts) {
-			if (left->IsActive() == false) {
+			if (left->IsActive() == false) 
 				continue;
-			}
-			Collider* leftCol = left->GetComponent<Collider>();
-			if (leftCol == NULL) {
+
+			std::vector<Collider*> leftCols = left->GetColliders();
+			if (leftCols.empty()) {
 				continue;
 			}
 
 			for (GameObject* right : rights) {
-				if (right->IsActive() == false) {
+				if (right->IsActive() == false) 
+					continue;
+				
+				std::vector<Collider*> rightCols = right->GetColliders();
+				if (rightCols.empty()) {
 					continue;
 				}
-				Collider* rightCol = right->GetComponent<Collider>();
-				if (rightCol == NULL) {
-					continue;
-				}
+
 				if (left == right)
 					continue;
 
-				ColliderCollision(leftCol, rightCol);
+				for (auto leftCol : leftCols) {
+					for (auto rightCol : rightCols) {
+						ColliderCollision(leftCol, rightCol);
+					}
+				}
+				
 			}
 		}
 	}
@@ -121,8 +127,7 @@ namespace p {
 		Vector2 leftPos = leftTr->GetPosition() + left->GetOffset();
 		Vector2 rightPos = rightTr->GetPosition() + right->GetOffset();
 
-		Vector2 leftSize = left->GetSize() *100.0f;
-		Vector2 rightSize = right->GetSize() *100.0f;
+		
 
 		enums::eColliderType leftType = left->GetColliderType();
 		enums::eColliderType rightType = right->GetColliderType();
@@ -130,6 +135,9 @@ namespace p {
 		if (leftType == enums::eColliderType::Rect2D &&
 			rightType == enums::eColliderType::Rect2D) {
 			//rect-rect
+			Vector2 leftSize = ((BoxCollider2D*) left)->GetSize() *100.0f;
+			Vector2 rightSize = ((BoxCollider2D*) right)->GetSize() *100.0f;
+
 			if (fabs(leftPos.x + leftSize.x/2.0f - (rightPos.x + rightSize.x/2.0f)) < fabs(leftSize.x / 2.0f + rightSize.x / 2.0f) &&
 				fabs(leftPos.y  + leftSize.y / 2.0f - (rightPos.y + rightSize.y / 2.0f)) < fabs(leftSize.y / 2.0f + rightSize.y / 2.0f)) {
 				return true;
@@ -139,11 +147,14 @@ namespace p {
 		if (leftType == enums::eColliderType::Circle2D &&
 			rightType == enums::eColliderType::Circle2D) {
 			//circle-circle
-			Vector2 leftCirclePos = leftPos + (leftSize / 2.0f);
-			Vector2 rightCirclePos = rightPos + (rightSize / 2.0f);
+			float leftRadius = ((CircleCollider2D*)left)->GetRadius() * 100.0f;
+			float rightRadius = ((CircleCollider2D*)right)->GetRadius() * 100.0f;
+
+			Vector2 leftCirclePos = Vector2(leftPos.x + leftRadius, leftPos.y + leftRadius); ;
+			Vector2 rightCirclePos = Vector2(rightPos.x + rightRadius, rightPos.y + rightRadius);
 
 			float distance = (leftCirclePos - rightCirclePos).length();
-			if (distance <= (leftSize.x / 2.0f) + (rightSize.x / 2.0f)) {
+			if (distance <= (leftRadius) + (rightRadius)) {
 				return true;
 			}
 		}
@@ -163,29 +174,34 @@ namespace p {
 		}
 		return false;
 	}
-	bool CollisionManager::checkCollideCircleRect(Collider * circle, Collider * rect)
+	bool CollisionManager::checkCollideCircleRect(Collider * circleCol, Collider * rectCol)
 	{
+		CircleCollider2D* circle = (CircleCollider2D*)circleCol;
+		BoxCollider2D* rect = (BoxCollider2D*)rectCol;
+
 		Transform* circleTr = circle->GetOwner()->GetComponent<Transform>();
 		Transform* rectTr = rect->GetOwner()->GetComponent<Transform>();
 
-		Vector2 circleSize = circle->GetSize() *100.0f;
-		Vector2 rectSize = rect->GetSize() *100.0f;
+		float radius = circle->GetRadius(); //반지름
+		Vector2 rectSize = rect->GetSize() *100.0f; //사각형 가로세로
 
-		Vector2 circlePos = circleTr->GetPosition() + circle->GetOffset();
-		Vector2 rectPos = rectTr->GetPosition() + rect->GetOffset();
+		Vector2 circlePos = Vector2(circleTr->GetPosition().x + circle->GetOffset().x + radius,
+			circleTr->GetPosition().y + circle->GetOffset().y + radius);//원의 중심
+		Vector2 rectPos = rectTr->GetPosition() + rect->GetOffset();//사각형 왼쪽위
 
-		float r = circleSize.x / 2.0f;//반지름
-		Vector2 leftTop = Vector2(rectPos.x - rectSize.x / 2.0f, rectPos.y - rectSize.y / 2.0f);
-		Vector2 rightBottom = Vector2(rectPos.x + rectSize.x / 2.0f, rectPos.y + rectSize.y / 2.0f);
+		 // 사각형의 가장 가까운 점을 찾기
+		float closestX = (circlePos.x < rectPos.x) ? rectPos.x :
+			(circlePos.x > rectPos.x + rectSize.x) ? rectPos.x + rectSize.x :
+			circlePos.x;
 
-		float closestX = max(leftTop.x, min(circlePos.x, rightBottom.x));
-		float closestY = max(leftTop.y, min(circlePos.y, rightBottom.y));
-		
-		Vector2 diff = Vector2(circlePos.x - closestX, circlePos.y - closestY);
-		float distance = diff.length();
-		if (distance <= r)
-			return true;
+		float closestY = (circlePos.y < rectPos.y) ? rectPos.y :
+			(circlePos.y > rectPos.y + rectSize.y) ? rectPos.y + rectSize.y :
+			circlePos.y;
 
-		return false;
+		// 원의 중심과 가장 가까운 점 간의 거리 계산
+		float distanceX = circlePos.x - closestX;
+		float distanceY = circlePos.y - closestY;
+
+		return (distanceX * distanceX + distanceY * distanceY) <= (radius * radius);
 	}
 }

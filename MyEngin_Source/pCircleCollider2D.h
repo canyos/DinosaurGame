@@ -13,7 +13,8 @@ namespace p{
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-
+		float GetRadius() { return mRadius; }
+		void SetRadius(float r) { mRadius = r; }
 	private:
 		float mRadius;
 	};

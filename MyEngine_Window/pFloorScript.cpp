@@ -3,6 +3,9 @@
 #include "pCollider.h"
 #include "pGameObject.h"
 #include "pAudioSource.h"
+#include "pBoxCollider2D.h"
+#include <typeinfo>
+#include "pCircleCollider2D.h"
 namespace p {
 	FloorScript::FloorScript()
 	{
@@ -29,22 +32,26 @@ namespace p {
 		Collider* playerCol = other;
 
 		Transform* floorTr = this->GetOwner()->GetComponent<Transform>();
-		Collider* floorCol = this->GetOwner()->GetComponent<Collider>();
+		BoxCollider2D* floorCol = (BoxCollider2D*)(this->GetOwner()->GetColliders())[0];
 
-		float len = fabs(playerTr->GetPosition().y - floorTr->GetPosition().y);
-		float scale = fabs(playerTr->GetPosition().y + playerCol->GetSize().y - floorTr->GetPosition().y);
+		float playerBottomY;
+		if (typeid(*playerCol) == typeid(BoxCollider2D)) {
+			playerBottomY = playerTr->GetPosition().y + ((BoxCollider2D*)playerCol)->GetSize().y*100;
+		}
+		if (typeid(*playerCol) == typeid(CircleCollider2D)) {
+			playerBottomY = playerTr->GetPosition().y + ((CircleCollider2D*)playerCol)->GetRadius();
+		}
 
-		//if (len < scale) {
-		//	Vector2 playerPos = playerTr->GetPosition();
-		//	playerPos.y -= (scale - len) -1.0f;
-		//	playerTr->SetPosition(playerPos);
-		//}
+		float floorTopY = floorTr->GetPosition().y;
+		float distance = playerBottomY - floorTopY;
 
-		Vector2 playerPos = playerTr->GetPosition();
-		if (playerPos.y >= 610) {
-			playerPos.y = 609;
+		if (distance > 0) {
+			// 플레이어를 바닥 위로 조정 (1.0f는 추가 오프셋)
+			Vector2 playerPos = playerTr->GetPosition();
+			playerPos.y -= distance + 1.0f; // 1.0f는 플레이어를 바닥 위로 밀어내는 오프셋
 			playerTr->SetPosition(playerPos);
 		}
+
 
 		//GetOwner()->GetComponent<AudioSource>()->Play();
 		rb->SetGround(true);

@@ -6,6 +6,7 @@
 namespace p {
 	BoxCollider2D::BoxCollider2D()
 		: Collider(enums::eColliderType::Rect2D)
+		, mSize(Vector2::Zero)
 	{
 	}
 	BoxCollider2D::~BoxCollider2D()

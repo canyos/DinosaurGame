@@ -2,6 +2,7 @@
 #include "CommonInclude.h"
 #include "pComponent.h"
 #include "pEntity.h"
+#include "pCollider.h"
 namespace p {
 	//actor
 	class GameObject : public Entity
@@ -48,6 +49,23 @@ namespace p {
 			return component;
 		}
 
+		template <typename T>
+		T* AddCollider()
+		{
+			T* col = new T();
+			col->Initialize();
+			col->SetOwner(this);
+
+			mColliders.push_back(col);
+
+			return col;
+		}
+
+		std::vector<Collider*> GetColliders()
+		{
+			return mColliders;
+		}
+
 		eState GetState() { return mState; }
 		void SetActive(bool power) {
 			if (power) {
@@ -67,6 +85,7 @@ namespace p {
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
+		std::vector<Collider*> mColliders;
 		eLayerType mLayerType;
 	};
 	typedef std::vector<GameObject*>::iterator GameObjectIter;
