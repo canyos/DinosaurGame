@@ -27,7 +27,7 @@ namespace p
 		};
 		enum class eComponentType {
 			Transform,
-			//Collider,
+			ColliderComponent,
 			RigidBody,
 			Script,
 			SpriteRenderer,

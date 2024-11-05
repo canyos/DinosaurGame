@@ -22,10 +22,6 @@ namespace p {
 
 		void AttackEffect();
 
-		void OnCollisionEnter(class Collider* other) override;
-		void OnCollisionStay(class Collider* other) override;
-		void OnCollisionExit(class Collider* other) override;
-
 		void SetPixelMapTexture(graphics::Texture* texture) { mPixelMap = texture; }
 	private:
 		void idle();

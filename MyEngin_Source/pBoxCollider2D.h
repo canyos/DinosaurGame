@@ -13,10 +13,7 @@ namespace p {
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		Vector2 GetSize() { return mSize; }
-		void SetSize(Vector2 size) { mSize = size; }
 	private:
-		Vector2 mSize;
 
 	};
 }

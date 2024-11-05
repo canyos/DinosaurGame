@@ -19,13 +19,13 @@ namespace p {
 	void Script::Render(HDC hdc)
 	{
 	}
-	void Script::OnCollisionEnter(Collider* other)
+	void Script::OnCollisionEnter(ColliderComponent* other)
 	{
 	}
-	void Script::OnCollisionStay(Collider* other)
+	void Script::OnCollisionStay(ColliderComponent* other)
 	{
 	}
-	void Script::OnCollisionExit(Collider* other)
+	void Script::OnCollisionExit(ColliderComponent* other)
 	{
 	}
 }

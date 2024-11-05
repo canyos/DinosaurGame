@@ -45,9 +45,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pCircleCollider2D.cpp">
       <Filter>collider</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)pCollider.cpp">
-      <Filter>collider</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pCollisionManager.cpp">
       <Filter>collider</Filter>
     </ClCompile>
@@ -100,6 +97,13 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)UITextureButton.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUITextureButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Collider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pCollider.cpp">
+      <Filter>collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pColliderComponent.cpp">
+      <Filter>collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)pRenderer.h" />
@@ -150,9 +154,6 @@
       <Filter>collider</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)pCircleCollider2D.h">
-      <Filter>collider</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)pCollider.h">
       <Filter>collider</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)pCollisionManager.h">
@@ -208,6 +209,12 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)pUITextureButton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pCollider.h">
+      <Filter>collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pColliderComponent.h">
+      <Filter>collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">

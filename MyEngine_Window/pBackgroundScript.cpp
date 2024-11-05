@@ -41,13 +41,13 @@ namespace p {
 	{
 	}
 
-	void BackgroundScript::OnCollisionEnter(Collider* other)
+	void BackgroundScript::OnCollisionEnter(ColliderComponent* other)
 	{
 	}
-	void BackgroundScript::OnCollisionStay(Collider * other)
+	void BackgroundScript::OnCollisionStay(ColliderComponent * other)
 	{
 	}
-	void BackgroundScript::OnCollisionExit(Collider * other)
+	void BackgroundScript::OnCollisionExit(ColliderComponent * other)
 	{
 	}
 }

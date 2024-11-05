@@ -6,8 +6,8 @@
 namespace p {
 	BoxCollider2D::BoxCollider2D()
 		: Collider(enums::eColliderType::Rect2D)
-		, mSize(Vector2::Zero)
 	{
+
 	}
 	BoxCollider2D::~BoxCollider2D()
 	{
@@ -39,8 +39,8 @@ namespace p {
 		
 		Rectangle(hdc,
 			pos.x + offset.x, pos.y + offset.y,
-			pos.x + offset.x + 100 * GetSize().x,
-			pos.y + offset.y + 100 * GetSize().y);
+			pos.x + offset.x + mSize.x,
+			pos.y + offset.y + mSize.y);
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);
 

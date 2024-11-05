@@ -13,9 +13,9 @@ namespace p {
 		void LateUpdate()override;
 		void Render(HDC hdc)override;
 
-		void OnCollisionEnter(Collider* other);
-		void OnCollisionStay(Collider* other);
-		void OnCollisionExit(Collider* other);
+		void OnCollisionEnter(ColliderComponent* other);
+		void OnCollisionStay(ColliderComponent* other);
+		void OnCollisionExit(ColliderComponent* other);
 	private:
 
 

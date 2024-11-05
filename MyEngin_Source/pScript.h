@@ -12,9 +12,9 @@ namespace p {
 		void LateUpdate()override;
 		void Render(HDC hdc)override;
 
-		virtual void OnCollisionEnter(class Collider* other);
-		virtual void OnCollisionStay(class Collider* other);
-		virtual void OnCollisionExit(class Collider* other);
+		virtual void OnCollisionEnter(class ColliderComponent* other);
+		virtual void OnCollisionStay(class ColliderComponent* other);
+		virtual void OnCollisionExit(class ColliderComponent* other);
 	private:
 
 	};

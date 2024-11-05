@@ -26,6 +26,7 @@
 #include "pParticle.h"
 #include "pParticleScript.h"
 #include "pBackgroundScript.h"
+#include "pColliderComponent.h"
 
 namespace p
 {
@@ -94,12 +95,16 @@ namespace p
 		//mPlayer->AddComponent<AudioListener>();
 
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
-		BoxCollider2D* collider = mPlayer->AddCollider<BoxCollider2D>();
-		collider->SetSize(Vector2(0.9f, 0.6f));
+		mPlayer->AddComponent<ColliderComponent>();
+		BoxCollider2D* collider = new BoxCollider2D();
+		collider->SetOriginalSize(Vector2(90.0f, 60.0f));
 		collider->SetOffset(Vector2(0.0f, 0.0f));
-		BoxCollider2D* collider2 = mPlayer->AddCollider<BoxCollider2D>();
-		collider2->SetSize(Vector2(0.7f, 0.8f));
+		mPlayer->AddCollider(collider);
+
+		BoxCollider2D* collider2 = new BoxCollider2D();
+		collider2->SetOriginalSize(Vector2(70.0f, 80.0f));
 		collider2->SetOffset(Vector2(0.0f, 0.0f));
+		mPlayer->AddCollider(collider2);
 
 		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -108,9 +113,7 @@ namespace p
 		playerAnimator->CreateAnimation(L"die", playerTex
 			, Vector2(16.9f * 4, 0.0f), Vector2(16.9f, 16.0f), Vector2(1.0f, 0.0f), 2, 0.5f);
 
-
 		//playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
-
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 600.0f));
 		mPlayer->GetComponent<Transform>()->SetRotation(0.0f);
@@ -125,10 +128,11 @@ namespace p
 		
 		Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(0.0f, 700.0f));
 		floor->SetName(L"Floor");
-		BoxCollider2D* floorCol = floor->AddCollider<BoxCollider2D>();
-		floorCol->SetSize(Vector2(1600.0f, 200.0f));
+		floor->AddComponent<ColliderComponent>();
+		BoxCollider2D* floorCol = new BoxCollider2D();
+		floorCol->SetOriginalSize(Vector2(1600.0f, 200.0f));
 		floor->AddComponent<FloorScript>();
-		
+		floor->AddCollider(floorCol);
 
 		BackGround* bg1 = object::Instantiate<BackGround>(eLayerType::BackGround, Vector2(0.0f, 0.0f));
 		bg1->SetName(L"Sky");
@@ -175,8 +179,9 @@ namespace p
 			auto randNum = cactusRand(mt);
 
 			Cactus* cactus = object::Instantiate<Cactus>(enums::eLayerType::Animal);
+			cactus->AddComponent<ColliderComponent>();
 			graphics::Texture* cactusATexture = Resources::Find<graphics::Texture>(cactusName[randNum]);
-			BoxCollider2D* cactusCollider = cactus->AddCollider<BoxCollider2D>();
+			BoxCollider2D* cactusCollider = new BoxCollider2D();
 
 			SpriteRenderer* cactusSr = cactus->AddComponent<SpriteRenderer>();
 			cactusSr->SetTexture(cactusATexture);
@@ -188,7 +193,7 @@ namespace p
 				cactusATexture->SetHeight(20);
 				cacTr->SetPosition(Vector2(1600.0f, 620.0f));
 				cacTr->SetScale(Vector2(3.0f, 4.0f));
-				cactusCollider->SetSize(Vector2(0.36f, 0.8f));
+				cactusCollider->SetOriginalSize(Vector2(36.0f, 80.0f));
 				cactusCollider->SetOffset(Vector2::Zero);
 			}
 			else if (randNum == 1) {
@@ -196,7 +201,7 @@ namespace p
 				cactusATexture->SetHeight(15);
 				cacTr->SetPosition(Vector2(1600.0f, 610.0f));
 				cacTr->SetScale(Vector2(3.0f, 6.0f));
-				cactusCollider->SetSize(Vector2(0.63f, 0.9f));
+				cactusCollider->SetOriginalSize(Vector2(63.0f, 90.0f));
 				cactusCollider->SetOffset(Vector2::Zero);
 			}
 			else {
@@ -204,10 +209,11 @@ namespace p
 				cactusATexture->SetHeight(20);
 				cacTr->SetPosition(Vector2(1600.0f, 600.0f));
 				cacTr->SetScale(Vector2(3.0f, 5.0f));
-				cactusCollider->SetSize(Vector2(0.84f, 1.0f));
+				cactusCollider->SetOriginalSize(Vector2(84.0f, 100.0f));
 				cactusCollider->SetOffset(Vector2::Zero);
 			}
-			
+			cactus->AddCollider(cactusCollider);
+
 			std::uniform_int_distribution<int> randSpawnInterval(30, 50);
 			spawnInterval = randSpawnInterval(mt);
 			spawnTime = 0;

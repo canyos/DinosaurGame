@@ -79,18 +79,6 @@ namespace p {
 		
 	}
 
-	void PlayerScript::OnCollisionEnter(Collider * other)
-	{
-	}
-
-	void PlayerScript::OnCollisionStay(Collider * other)
-	{
-	}
-
-	void PlayerScript::OnCollisionExit(Collider * other)
-	{
-	}
-
 	void PlayerScript::idle()
 	{
 		//if (Input::GetKey(eKeyCode::D))

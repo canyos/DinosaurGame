@@ -1,8 +1,12 @@
 #pragma once
-#include "pComponent.h"
+#include "pEntity.h"
+#include "pColliderComponent.h"
+#include "pEnum.h"
+#include "pGameObject.h"
 
 namespace p {
-	class Collider
+	//using namespace enums;
+	class Collider 
 	{
 	public:
 		Collider(eColliderType type);
@@ -13,25 +17,24 @@ namespace p {
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		virtual void OnCollisionEnter(Collider* other);
-		virtual void OnCollisionStay(Collider* other);
-		virtual void OnCollisionExit(Collider* other);
-
-		Vector2 GetOffset() { return mOffset; }
-		void SetOffset(Vector2 offset) { mOffset = offset; }
-		UINT32 GetID() { return mID; }
-
 		eColliderType GetColliderType() { return mType; }
-		GameObject* GetOwner() { return Owner; }
-		void SetOwner(GameObject* obj) { Owner = obj; }
+		Vector2 GetSize() { return mSize; }
+		Vector2 GetOffset() { return mOffset; }
+		GameObject* GetOwner() { return mOwner; }
+		Vector2 GetOriginalSize() { return mOriginalSize; }
 
-	private:
+		void SetSize(Vector2 size) { mSize = size; }
+		void SetOriginalSize(Vector2 size) { mSize = size, mOriginalSize = size; }
+		void SetOffset(Vector2 offset) { mOffset = offset; }
+		void SetOwner(GameObject* obj) { mOwner = obj; }
+
+	protected:
+		Vector2 mOriginalSize;
+		Vector2 mSize;
 		Vector2 mOffset;
-		static UINT32 mCollisionID;
-		UINT32 mID;
-		
 		eColliderType mType;
-		GameObject* Owner;
+		GameObject* mOwner;
 	};
 }
+
 

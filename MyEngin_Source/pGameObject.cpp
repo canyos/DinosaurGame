@@ -2,13 +2,15 @@
 #include "pInput.h"
 #include "pTime.h"
 #include "pTransform.h"
+#include "pCollider.h"
+#include "pColliderComponent.h"
+
 namespace p {
 	GameObject::GameObject()
 		:mState(eState::Active), 
 		 mLayerType(eLayerType::None)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
-		mColliders = {};
 		InitializeTransform();
 	}
 
@@ -21,13 +23,6 @@ namespace p {
 			delete comp;
 			comp = nullptr;
 		}
-		for (Collider* col : mColliders)
-		{
-			if (col == nullptr)
-				continue;
-			delete col;
-			col = nullptr;
-		}
 	}
 
 	void GameObject::Initialize()
@@ -38,13 +33,6 @@ namespace p {
 				continue;
 
 			comp->Initialize();
-		}
-		for (Collider* col : mColliders)
-		{
-			if (col == nullptr)
-				continue;
-
-			col->Initialize();
 		}
 	}
 
@@ -57,12 +45,6 @@ namespace p {
 				continue;
 			comp->Update();
 		}
-		for (Collider* col : mColliders)
-		{
-			if (col == nullptr)
-				continue;
-			col->Update();
-		}
 	}
 
 	void GameObject::LateUpdate()
@@ -72,12 +54,6 @@ namespace p {
 			if (comp == nullptr)
 				continue;
 			comp->LateUpdate();
-		}
-		for (Collider* col : mColliders)
-		{
-			if (col == nullptr)
-				continue;
-			col->LateUpdate();
 		}
 	}
 
@@ -89,13 +65,17 @@ namespace p {
 				continue;
 			comp->Render(hdc);
 		}
-		for (Collider* col : mColliders)
-		{
-			if (col == nullptr)
-				continue;
-			col->Render(hdc);
-		}
 	}
+
+	void GameObject::AddCollider(Collider * col)
+	{
+		col->SetOwner(this);
+		ColliderComponent* colComp = (ColliderComponent*)mComponents[(UINT)eComponentType::ColliderComponent];
+		if (colComp == nullptr)
+			return;
+		colComp->AddCollider(col);
+	}
+
 	void GameObject::InitializeTransform() {
 		AddComponent<Transform>();
 	}

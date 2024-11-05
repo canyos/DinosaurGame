@@ -13,7 +13,6 @@ namespace p
 	void Component::Initialize()
 	{
 		
-
 	}
 
 	void Component::Update()

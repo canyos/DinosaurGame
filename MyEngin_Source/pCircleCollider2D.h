@@ -8,15 +8,13 @@ namespace p{
 		CircleCollider2D();
 		~CircleCollider2D();
 
-		virtual void Initialize();
-		virtual void Update();
-		virtual void LateUpdate();
-		virtual void Render(HDC hdc);
+		void Initialize() override;
+		void Update() override;
+		void LateUpdate() override;
+		void Render(HDC hdc) override;
 
-		float GetRadius() { return mRadius; }
-		void SetRadius(float r) { mRadius = r; }
 	private:
-		float mRadius;
+
 	};
 }
 

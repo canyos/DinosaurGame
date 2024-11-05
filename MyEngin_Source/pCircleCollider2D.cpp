@@ -7,8 +7,9 @@
 namespace p {
 	CircleCollider2D::CircleCollider2D()
 		: Collider(enums::eColliderType::Circle2D)
-		, mRadius(0.0f)
 	{
+		mSize = Vector2::Zero;
+		mOffset = Vector2::Zero;
 	}
 	CircleCollider2D::~CircleCollider2D()
 	{
@@ -35,8 +36,8 @@ namespace p {
 		HPEN oldPen = (HPEN)SelectObject(hdc, greenPen);
 
 		Vector2 rightBottom;
-		rightBottom.x = pos.x + offset.x + GetRadius();
-		rightBottom.y = pos.y + offset.y + GetRadius();
+		rightBottom.x = pos.x + offset.x + mSize.x;
+		rightBottom.y = pos.y + offset.y + mSize.y;
 		Ellipse(hdc, pos.x + offset.x
 			, pos.y + offset.y
 			, rightBottom.x
