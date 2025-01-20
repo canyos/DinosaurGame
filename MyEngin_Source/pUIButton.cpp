@@ -47,7 +47,7 @@ namespace p
 	void UIButton::OnRender(HDC hdc)
 	{
 		if (mTexture == nullptr) {
-			Rectangle(hdc, mPosition.x, mPosition.y, mPosition.x + mSize.x, mPosition.x + mPosition.y);
+			Rectangle(hdc, mPosition.x, mPosition.y, mPosition.x + mSize.x, mPosition.x + mSize.y);
 
 			/*wchar_t str[50] = L"Title  Scene";
 			TextOutW(hdc, 0, 0, str, lstrlenW(str));*/

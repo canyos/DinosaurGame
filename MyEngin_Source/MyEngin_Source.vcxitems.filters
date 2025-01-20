@@ -67,9 +67,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIBase.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pAudioClip.cpp">
       <Filter>Audio</Filter>
     </ClCompile>
@@ -88,21 +85,24 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pFmod.cpp">
       <Filter>Fmod</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)UITextButton.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIButton.cpp">
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pUITextButton.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)UITextureButton.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)pUITextureButton.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Collider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pCollider.cpp">
       <Filter>collider</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pColliderComponent.cpp">
       <Filter>collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pConnectionManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pUITextureButton.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,12 +208,15 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)pUITextButton.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)pUITextureButton.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pCollider.h">
       <Filter>collider</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)pColliderComponent.h">
       <Filter>collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pConnectionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pUITextureButton.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +249,9 @@
     </Filter>
     <Filter Include="Audio">
       <UniqueIdentifier>{098b2684-3914-4e33-83c9-e1efb8fca9f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="connection">
+      <UniqueIdentifier>{432a7139-5680-45ec-af7e-007172d07b0e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

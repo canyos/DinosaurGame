@@ -27,6 +27,10 @@
 #include "pParticleScript.h"
 #include "pBackgroundScript.h"
 #include "pColliderComponent.h"
+#include "pUITextButton.h"
+#include "pConnectionManager.h"
+#include <cwchar> // swprintf 사용을 위해 필요
+
 
 namespace p
 {
@@ -82,6 +86,7 @@ namespace p
 		isEnd = false;
 		mTime = 0.0f;
 		score = 0;
+		HighScore = ConnectionManager::GetHighScore();
 
 		//main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
@@ -293,11 +298,21 @@ namespace p
 		if (prevEnd == false && isEnd == true) {
 			UIManager::Push(L"GameOver");
 			UIManager::Push(L"Restart");
+
 			score = mTime;
+			UITextButton* saveScore = (UITextButton*)UIManager::findUI(L"Save Score");
+			if (saveScore == nullptr)
+				assert(false);
+			saveScore->SetClickEvent([=]() {
+				ConnectionManager::SaveScore(score);
+			});
+			UIManager::Push(L"Save Score");
+
 		}
 		else if (prevEnd == true && isEnd == false){
 			UIManager::Pop(L"GameOver");
 			UIManager::Pop(L"Restart");
+			UIManager::Pop(L"Save Score");
 		}
 		prevEnd = isEnd;
 	}
@@ -306,11 +321,15 @@ namespace p
 		Scene::Render(hdc);
 		if (isEnd) {
 			wchar_t str[50] = L"";
-			swprintf_s(str, 50, L"score : %d ", score);
-			int len = wcsnlen_s(str, 50);
 			SetBkMode(hdc, TRANSPARENT);
 			HFONT hOldFont = (HFONT)SelectObject(hdc, hFont);
+
+			int len = wcsnlen_s(str, 50);
+			swprintf_s(str, 50, L"score : %d ", score);
 			TextOutW(hdc, 780, 500, str, len);
+			swprintf_s(str, 50, L"score : %d ", HighScore);
+			TextOutW(hdc, 880, 500, str, len);
+
 			SelectObject(hdc, hOldFont);
 			SetBkMode(hdc, OPAQUE);
 		}
@@ -323,6 +342,7 @@ namespace p
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
 		isEnd = false;
+
 	}
 	void PlayScene::OnExit()
 	{

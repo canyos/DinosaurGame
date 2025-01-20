@@ -20,8 +20,7 @@ namespace p {
 		startButton->SetSize(Vector2(200.0f, 50.0f));
 		startButton->SetClickEvent([]() {
 			SceneManager::LoadScene(L"PlayScene");
-			});
-
+		});
 		mUIs.insert(std::make_pair(L"Start Button", startButton));
 
 		UITextButton* exitButton = new UITextButton();
@@ -30,7 +29,7 @@ namespace p {
 		exitButton->SetSize(Vector2(200.0f, 50.0f));
 		exitButton->SetClickEvent([]() {
 			PostQuitMessage(0);
-			});
+		});
 		mUIs.insert(std::make_pair(L"Exit Button", exitButton));
 
 		UIHUD* gameOver = new UIHUD();
@@ -50,13 +49,19 @@ namespace p {
 		restart->SetUIName(L"Restart");
 		restart->SetTexture(restartTexture);
 
-		restart->SetPos(Vector2(1000.0f, 350.0f));
+		restart->SetPos(Vector2(650.0f, 500.0f));
 		restart->SetSize(Vector2(6.0f, 6.0f));
 		restart->SetClickEvent([]() {
 			Scene* activeScene = SceneManager::GetActiveScene();
 			activeScene->Reset();
 		});
 		mUIs.insert(std::make_pair(L"Restart", restart));
+
+		UITextButton* saveScore = new UITextButton();
+		saveScore->SetUIName(L"Save Score");
+		saveScore->SetPos(Vector2(900.0f, 500.0f));
+		saveScore->SetSize(Vector2(100.0f, 100.0f));
+		mUIs.insert(std::make_pair(L"Save Score", saveScore));
 
 	}
 	void UIManager::OnLoad(std::wstring uiName)

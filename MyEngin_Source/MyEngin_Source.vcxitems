@@ -14,7 +14,6 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Collider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAnimtation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAudioClip.cpp" />
@@ -26,6 +25,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pColliderComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pCollisionManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pConnectionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pFmod.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pLayer.cpp" />
@@ -53,8 +53,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUITextButton.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUITextureButton.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)UITextButton.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)UITextureButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -70,6 +68,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)pColliderComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pConnectionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pEnum.h" />
