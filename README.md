@@ -14,5 +14,5 @@ TODO LIST
 - [x] 결과창, 점수 추가 
 - [x] player collider 2개 부여하게 하기
 - [ ] 선인장 생성 패턴을 생성하는 tool개발 후 파일 형식으로 저장 및 불러오기
-- [ ] spring으로 서버,db 달아서 network해보기
+- [x] spring으로 서버,db 달아서 network해보기
 
