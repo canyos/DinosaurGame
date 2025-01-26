@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ScoreRepository extends JpaRepository<Score,Long> {
-    @Query(value = "Select * from score s order by s.score limit 1",nativeQuery = true)
+    @Query(value = "Select * from score s order by s.score desc limit 1",nativeQuery = true)
     List<Integer> findHighScore();
 }

@@ -18,10 +18,15 @@ namespace p {
 		virtual void OnInActive() override;
 		virtual void OnUpdate() override;
 		virtual void OnLateUpdate() override;
-		virtual void OnRender(HDC hdc) override;
+		virtual void OnRender(HDC hdc);
 		virtual void OnClear() override;
+
+		void SetText(std::wstring newText) {
+			this->text = newText;
+		}
 
 	private:
 		Event mOnClick;
+		std::wstring text;
 	};
 }
