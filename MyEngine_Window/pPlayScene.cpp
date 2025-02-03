@@ -303,16 +303,32 @@ namespace p
 			UITextButton* saveScore = (UITextButton*)UIManager::findUI(L"Save Score");
 			if (saveScore == nullptr)
 				assert(false);
+
 			saveScore->SetClickEvent([=]() {
 				ConnectionManager::SaveScore(score);
+				this->Reset();
 			});
 			UIManager::Push(L"Save Score");
+
+			UITextButton* currentScore = (UITextButton*)UIManager::findUI(L"current Score");
+			if (currentScore == nullptr)
+				assert(false);
+			currentScore->SetText(L"score : " + std::to_wstring(score));
+			UIManager::Push(L"current Score");
+
+			UITextButton* highScore = (UITextButton*)UIManager::findUI(L"high Score");
+			if (highScore == nullptr)
+				assert(false);
+			highScore->SetText(L"high score : " + std::to_wstring(HighScore));
+			UIManager::Push(L"high Score");
 
 		}
 		else if (prevEnd == true && isEnd == false){
 			UIManager::Pop(L"GameOver");
 			UIManager::Pop(L"Restart");
 			UIManager::Pop(L"Save Score");
+			UIManager::Pop(L"current Score");
+			UIManager::Pop(L"high Score");
 		}
 		prevEnd = isEnd;
 	}

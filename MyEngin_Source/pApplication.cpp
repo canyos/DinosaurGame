@@ -6,6 +6,7 @@
 #include "pCollisionManager.h"
 #include "pUIManager.h"
 #include "pFmod.h"
+#include "pConnectionManager.h"
 
 namespace p {
 	Application::Application() :mHwnd(nullptr), mHdc(nullptr), mHeight(0), mWidth(0), mBackHdc(NULL), mBackBitmap(NULL)
@@ -24,7 +25,7 @@ namespace p {
 		CollisionManager::Initialize();
 		UIManager::Initialize();
 		SceneManager::Initialize();
-		
+		ConnectionManager::Initialize();
 	}
 	void Application::InitializeEtc()
 	{

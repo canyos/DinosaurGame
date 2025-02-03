@@ -20,6 +20,7 @@ namespace p {
 		static CURLcode res;
 		static std::string response;
 		static int HighScore;
+		static struct curl_slist* headers;
 	};
 }
 

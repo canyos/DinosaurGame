@@ -6,10 +6,13 @@ namespace p {
 	CURLcode p::ConnectionManager::res = CURLE_OK;
 	std::string p::ConnectionManager::response = "0";
 	int p::ConnectionManager::HighScore = 0;
+	struct curl_slist* p::ConnectionManager::headers = nullptr;
+	
 	
 	void ConnectionManager::Initialize()
 	{
 		curl = curl_easy_init(); // libcurl 초기화
+		headers = curl_slist_append(headers, "Content-Type: application/json");
 	}
 	void ConnectionManager::Update()
 	{
@@ -23,7 +26,10 @@ namespace p {
 	}
 	void ConnectionManager::SaveScore(int score)
 	{
+		int a = 0;
 		if (curl) {
+			curl_easy_reset(curl);
+			curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 			curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:8080/api/score");
 			curl_easy_setopt(curl, CURLOPT_POST, 1L); // POST 요청
 			
@@ -40,6 +46,7 @@ namespace p {
 	{
 		response.clear();
 		if (curl) {
+			curl_easy_reset(curl);
 			curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:8080/api/score"); // URL 설정
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback); // 응답 처리 콜백
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response); // 응답 데이터 저장
@@ -48,7 +55,8 @@ namespace p {
 			assert(res == CURLE_OK);			
 		}
 
-		if (response == "")return 0;
+		if (response == "" || response=="[]")return 0;
+		response = response.substr(1, response.length()-2);
 		return stoi(response);
 	}
 

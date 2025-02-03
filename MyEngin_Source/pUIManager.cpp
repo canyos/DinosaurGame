@@ -14,8 +14,10 @@ namespace p {
 	UIBase* UIManager::mActiveUI = nullptr;
 	void UIManager::Initialize()
 	{
+		//title scene
 		UITextButton* startButton = new UITextButton();
 		startButton->SetUIName(L"Start Button");
+		startButton->SetText(L"Start Button");
 		startButton->SetPos(Vector2(100.0f, 100.0f));
 		startButton->SetSize(Vector2(200.0f, 50.0f));
 		startButton->SetClickEvent([]() {
@@ -25,6 +27,7 @@ namespace p {
 
 		UITextButton* exitButton = new UITextButton();
 		exitButton->SetUIName(L"Exit Button");
+		exitButton->SetText(L"Exit Button");
 		exitButton->SetPos(Vector2(100.0f, 400.0f));
 		exitButton->SetSize(Vector2(200.0f, 50.0f));
 		exitButton->SetClickEvent([]() {
@@ -32,11 +35,11 @@ namespace p {
 		});
 		mUIs.insert(std::make_pair(L"Exit Button", exitButton));
 
+		//play scene
 		UIHUD* gameOver = new UIHUD();
 		graphics::Texture* gameOverTexture = Resources::Find<graphics::Texture>(L"GameOver");
 		gameOverTexture->SetWidth(270.0f);
 		gameOverTexture->SetHeight(42.0f);
-		
 		gameOver->SetTexture(gameOverTexture);
 		gameOver->SetUIName(L"GameOver");
 		gameOver->SetName(L"GameOver");
@@ -48,7 +51,6 @@ namespace p {
 		graphics::Texture* restartTexture = Resources::Find<graphics::Texture>(L"BtnUp");
 		restart->SetUIName(L"Restart");
 		restart->SetTexture(restartTexture);
-
 		restart->SetPos(Vector2(650.0f, 500.0f));
 		restart->SetSize(Vector2(6.0f, 6.0f));
 		restart->SetClickEvent([]() {
@@ -59,10 +61,24 @@ namespace p {
 
 		UITextButton* saveScore = new UITextButton();
 		saveScore->SetUIName(L"Save Score");
+		saveScore->SetText(L"Save Score");
 		saveScore->SetPos(Vector2(900.0f, 500.0f));
 		saveScore->SetSize(Vector2(100.0f, 100.0f));
 		mUIs.insert(std::make_pair(L"Save Score", saveScore));
 
+		UITextButton* currentScore = new UITextButton();
+		currentScore->SetUIName(L"current Score");
+		currentScore->SetText(L"score : 0");
+		currentScore->SetPos(Vector2(650.0f, 300.0f));
+		currentScore->SetSize(Vector2(100.0f, 20.0f));
+		mUIs.insert({ L"current Score", currentScore });
+
+		UITextButton* highScore = new UITextButton();
+		highScore->SetUIName(L"high Score");
+		highScore->SetText(L"high score : 0");
+		highScore->SetPos(Vector2(650.0f, 200.0f));
+		highScore->SetSize(Vector2(100.0f, 20.0f));
+		mUIs.insert({ L"high Score", highScore });
 	}
 	void UIManager::OnLoad(std::wstring uiName)
 	{
