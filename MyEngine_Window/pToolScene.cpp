@@ -19,7 +19,7 @@ namespace p
 	}
 	void ToolScene::Initialize()
 	{
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800.0f, 450.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		camera->AddComponent<CameraScript>();
 		renderer::mainCamera = cameraComp;
@@ -73,18 +73,15 @@ namespace p
 	{
 		Scene::Render(hdc);
 		
-		for (size_t i = 0; i < 10; i++)
+		for (size_t i = 0; i < 160; i++)
 		{
-			Vector2 pos = renderer::mainCamera->CalculatePosition
-			(
-				Vector2(TilemapRenderer::TileSize.x * i, 0.0f)
-			);
+			Vector2 pos = renderer::mainCamera->CalculatePosition(Vector2(TilemapRenderer::TileSize.x * i, 0.0f));
 
 			MoveToEx(hdc, pos.x, 0, NULL);
-			LineTo(hdc, pos.x, 1000);
+			LineTo(hdc, pos.x, 1600);
 		}
 
-		for (size_t i = 0; i < 10; i++)
+		for (size_t i = 0; i < 90; i++)
 		{
 			Vector2 pos = renderer::mainCamera->CalculatePosition
 			(
@@ -92,7 +89,7 @@ namespace p
 			);
 
 			MoveToEx(hdc, 0, pos.y, NULL);
-			LineTo(hdc, 1000, pos.y);
+			LineTo(hdc, 1600, pos.y);
 		}
 	}
 	void ToolScene::OnEnter()

@@ -1,6 +1,7 @@
 #pragma once
 #include "pScene.h"
 #include "pTile.h"
+#include "pTilemapRenderer.h"
 namespace p
 {
 	class ToolScene : public Scene
@@ -20,6 +21,8 @@ namespace p
 
 	private:
 		std::vector<Tile*> mTiles;
+		//Tile* tile;
+		//TilemapRenderer* tmr;
 	};
 }
 LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
