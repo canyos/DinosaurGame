@@ -49,6 +49,8 @@ namespace p
 			DEFAULT_PITCH | FF_SWISS,
 			L"Arial");         // 글꼴 이름
 
+		PlayScene::map = {0};
+
 	}
 	PlayScene::~PlayScene()
 	{
@@ -83,6 +85,7 @@ namespace p
 			//mTiles.push_back(tile);
 		}
 		fclose(pFile);*/
+
 		isEnd = false;
 		mTime = 0.0f;
 		score = 0;
@@ -156,6 +159,19 @@ namespace p
 			bgSr2->SetSize(Vector2(17.0f, 4.2f));
 		}
 		
+		FILE* pFile = fopen("../Tile", "r+");
+		if (pFile != NULL) {
+			for (;;)
+			{
+				int height = 0;
+				if (fread(&height, sizeof(int), 1, pFile) != 1)
+					break;
+
+				map.push_back(height);
+			}
+			fclose(pFile);
+		}
+
 
 		//오디오 재생
 		/*AudioSource* as = floor->AddComponent<AudioSource>();
@@ -193,33 +209,36 @@ namespace p
 			Transform* cacTr = cactus->AddComponent<Transform>();
 			cactus->AddComponent<CactusScript>();
 			
+			int sz = map.size();
+			int h = map[(int)mTime%sz];
+			mTime += 1;
 			if (randNum == 0) {
 				cactusATexture->SetWidth(12);
 				cactusATexture->SetHeight(20);
-				cacTr->SetPosition(Vector2(1600.0f, 620.0f));
-				cacTr->SetScale(Vector2(3.0f, 4.0f));
-				cactusCollider->SetOriginalSize(Vector2(36.0f, 80.0f));
+				cacTr->SetPosition(Vector2(1600.0f, 700.0f - 20.0f*h));
+				cacTr->SetScale(Vector2(3.0f, 1.0f*h));
+				cactusCollider->SetOriginalSize(Vector2(36.0f, 20.0f*h));
 				cactusCollider->SetOffset(Vector2::Zero);
 			}
 			else if (randNum == 1) {
 				cactusATexture->SetWidth(21);
 				cactusATexture->SetHeight(15);
-				cacTr->SetPosition(Vector2(1600.0f, 610.0f));
-				cacTr->SetScale(Vector2(3.0f, 6.0f));
-				cactusCollider->SetOriginalSize(Vector2(63.0f, 90.0f));
+				cacTr->SetPosition(Vector2(1600.0f, 700.0f - 15.0f*h));
+				cacTr->SetScale(Vector2(3.0f, 1.0f*h));
+				cactusCollider->SetOriginalSize(Vector2(63.0f, 15.0f*h));
 				cactusCollider->SetOffset(Vector2::Zero);
 			}
 			else {
 				cactusATexture->SetWidth(28);
 				cactusATexture->SetHeight(20);
-				cacTr->SetPosition(Vector2(1600.0f, 600.0f));
-				cacTr->SetScale(Vector2(3.0f, 5.0f));
-				cactusCollider->SetOriginalSize(Vector2(84.0f, 100.0f));
+				cacTr->SetPosition(Vector2(1600.0f, 700.0f - 20.0f*h));
+				cacTr->SetScale(Vector2(3.0f, 1.0f*h));
+				cactusCollider->SetOriginalSize(Vector2(84.0f, 20.0f*h));
 				cactusCollider->SetOffset(Vector2::Zero);
 			}
 			cactus->AddCollider(cactusCollider);
 
-			std::uniform_int_distribution<int> randSpawnInterval(30, 50);
+			std::uniform_int_distribution<int> randSpawnInterval(3, 5);
 			spawnInterval = randSpawnInterval(mt);
 			spawnTime = 0;
 		}
@@ -231,7 +250,7 @@ namespace p
 			auto randNum = cloudRand(mt);
 
 			Particle* cloud = object::Instantiate<Particle>(enums::eLayerType::Particle);
-			cloud->SetSpeed(150.0f);
+			cloud->SetSpeed(15.0f);
 			graphics::Texture* cloudTexture = Resources::Find<graphics::Texture>(cloudName[randNum%2]);
 
 			SpriteRenderer* cloudSr = cloud->AddComponent<SpriteRenderer>();
@@ -264,7 +283,7 @@ namespace p
 			auto randNum = rockRand(mt);
 
 			Particle* rock = object::Instantiate<Particle>(enums::eLayerType::Particle);
-			rock->SetSpeed(250.0f);
+			rock->SetSpeed(30.0f);
 			graphics::Texture* rockTexture = Resources::Find<graphics::Texture>(rockName[randNum % 2]);
 
 			SpriteRenderer* rockSr = rock->AddComponent<SpriteRenderer>();
@@ -286,7 +305,7 @@ namespace p
 				rockTr->SetScale(Vector2(6.0f, 6.0f));
 			}
 
-			std::uniform_int_distribution<int> randSpawnInterval(30, 50);
+			std::uniform_int_distribution<int> randSpawnInterval(50, 100);
 			rockInterval = randSpawnInterval(mt);
 			rockTime = 0;
 		}

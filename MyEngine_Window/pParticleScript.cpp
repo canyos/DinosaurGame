@@ -24,7 +24,7 @@ namespace p {
 			Particle* particle = (Particle*)gameObj;
 			float speed = particle->GetSpeed();
 
-			pos.x -= min(speed*2, max(Time::DeltaTime() * speed, 1.0* Time::DeltaTime() * speed + activeScene->GetTime()* speed/100.0f));
+			pos.x -= min(speed* Time::DeltaTime(), Time::DeltaTime() * activeScene->GetTime());
 			tr->SetPosition(pos);
 
 			if (pos.x <= -100.0f) {

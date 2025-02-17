@@ -8,6 +8,8 @@
 #include "pRenderer.h"
 #include "pInput.h"
 #include "pCameraScript.h"
+#include "pBackGround.h"
+#include "pSpriteRenderer.h"
 
 namespace p
 {
@@ -24,6 +26,22 @@ namespace p
 		camera->AddComponent<CameraScript>();
 		renderer::mainCamera = cameraComp;
 		
+		BackGround* bg1 = object::Instantiate<BackGround>(eLayerType::BackGround, Vector2(0.0f, 0.0f));
+		bg1->SetName(L"Sky");
+		SpriteRenderer* bgSr1 = bg1->AddComponent<SpriteRenderer>();
+		graphics::Texture* skyTexture = Resources::Find<graphics::Texture>(L"Sky");
+		bgSr1->SetTexture(skyTexture);
+		bgSr1->SetSize(Vector2(34.0f, 11.0f));
+
+
+		BackGround* bg2 = object::Instantiate<BackGround>(eLayerType::BackGround, Vector2(0.0f , 700.0f));
+		bg2->SetName(L"ground");
+		SpriteRenderer* bgSr2 = bg2->AddComponent<SpriteRenderer>();
+		graphics::Texture* groundTexture = Resources::Find<graphics::Texture>(L"Ground");
+		bgSr2->SetTexture(groundTexture);
+		bgSr2->SetSize(Vector2(34.0f, 4.2f));
+		
+
 		/*Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
 		TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
 		tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));*/
@@ -123,25 +141,22 @@ namespace p
 			return;
 
 		FILE* pFile = nullptr;
-		_wfopen_s(&pFile, szFilePath, L"wb");
-
+		_wfopen_s(&pFile, szFilePath, L"a+");
+		int arr[34] = { 0 };
 		for (Tile* tile : mTiles)
 		{
-			TilemapRenderer* tmr = tile->GetComponent<TilemapRenderer>();
+			//TilemapRenderer* tmr = tile->GetComponent<TilemapRenderer>();
 			Transform* tr = tile->GetComponent<Transform>();
 
-			Vector2 sourceIndex = tmr->GetIndex();
+			//Vector2 sourceIndex = tmr->GetIndex();
 			Vector2 position = tr->GetPosition();
-			int x = sourceIndex.x;
-			fwrite(&x, sizeof(int), 1, pFile);
-			int y = sourceIndex.y;
-			fwrite(&y, sizeof(int), 1, pFile);
-			x = position.x;
-			fwrite(&x, sizeof(int), 1, pFile);
-			y = position.y;
-			fwrite(&y, sizeof(int), 1, pFile);
+			arr[(int)(position.x/TilemapRenderer::TileSize.x)]++;
 		}
 
+		for (int i = 0; i < 34; i++) {
+			fwrite(&arr[i], sizeof(int), 1, pFile);
+		}
+		
 		fclose(pFile);
 	}
 	void ToolScene::Load()
@@ -168,30 +183,22 @@ namespace p
 			return;
 
 		FILE* pFile = nullptr;
-		_wfopen_s(&pFile, szFilePath, L"rb");
-		while (true)
+		_wfopen_s(&pFile, szFilePath, L"r+");
+		for(int i=0;i<34;i++)
 		{
-			int idxX = 0;
-			int idxY = 0;
-
-			int posX = 0;
-			int posY = 0;
-
-			if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
+			int height = 0;
+			if (fread(&height, sizeof(int), 1, pFile) == NULL)
 				break;
-			if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
-				break;
-			if (fread(&posX, sizeof(int), 1, pFile) == NULL)
-				break;
-			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
-				break;
+			
+			for (int j = 0; j < height;j++) {
+				Tile* tile = object::Instantiate<Tile>(eLayerType::Tile, Vector2(i*TilemapRenderer::TileSize.x, (13-j)*TilemapRenderer::TileSize.y));
+				TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+				tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+				tmr->SetIndex(Vector2(0, 1));
 
-			Tile* tile = object::Instantiate<Tile>(eLayerType::Tile, Vector2(posX, posY));
-			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
-			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
-			tmr->SetIndex(Vector2(idxX, idxY));
+				mTiles.push_back(tile);
+			}
 
-			mTiles.push_back(tile);
 		}
 		fclose(pFile);
 	}

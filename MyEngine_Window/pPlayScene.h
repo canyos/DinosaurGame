@@ -35,7 +35,7 @@ namespace p {
 		int rockTime = 0;
 		int rockInterval = 40;
 
-		
+		std::vector<int> map;
 	};
 }
 

@@ -28,7 +28,7 @@ namespace p {
 		if (!activeScene->IsEnd()) {
 			Transform* tr = GetOwner()->GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
-			deltaX = min(500.0f, 1.0* max(Time::DeltaTime() * 250.0f, Time::DeltaTime() * 250.0f + activeScene->GetTime()*2.5f));
+			deltaX = min(200.0f* Time::DeltaTime(), 1.0* max(Time::DeltaTime() * 250.0f, Time::DeltaTime() * 250.0f + activeScene->GetTime()*2.5f));
 
 			for (Collider* collider : GetOwner()->GetComponent<ColliderComponent>()->GetColliders()) {
 				Vector2 originalSize = collider->GetOriginalSize(); // Assuming you have a method to get the original size

@@ -69,6 +69,10 @@ namespace p {
 	}
 	void PlayerScript::LateUpdate()
 	{
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+		if (pos.y > 750) pos.y = 600;
+		tr->SetPosition(pos);
 	}
 	void PlayerScript::Render(HDC hdc)
 	{
@@ -125,7 +129,7 @@ namespace p {
 				//pos.y -= 100.0f * Time::DeltaTime();
 				//rb->AddForce(Vector2(0, -200.0f));
 				Vector2 velocity = rb->GetVelocity();
-				velocity.y = -650.0f;
+				velocity.y = -900.0f;
 				rb->SetVelocity(velocity);
 				rb->SetGround(false);
 			}

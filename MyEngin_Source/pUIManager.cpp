@@ -48,7 +48,7 @@ namespace p {
 		mUIs.insert(std::make_pair(L"GameOver", gameOver));
 
 		UITextureButton* restart = new UITextureButton();
-		graphics::Texture* restartTexture = Resources::Find<graphics::Texture>(L"Restart");
+		graphics::Texture* restartTexture = Resources::Find<graphics::Texture>(L"BtnUp");
 		restart->SetUIName(L"Restart");
 		restart->SetTexture(restartTexture);
 		restart->SetPos(Vector2(650.0f, 500.0f));
