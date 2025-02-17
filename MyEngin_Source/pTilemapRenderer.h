@@ -20,7 +20,7 @@ namespace p
 	public:
 		static Vector2 TileSize;
 		static Vector2 OriginTileSize;
-		static Vector2 SelectedIndex;
+		static Vector2 SelectedIndex;//고른 타일 인덱스
 	private:
 		Vector2 mTileSize;
 		graphics::Texture* mTexture;

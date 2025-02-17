@@ -3,12 +3,13 @@
 #include "pTransform.h"
 #include "pTexture.h"
 #include "pRenderer.h"
+#include "pResources.h"
 
 namespace p
 {
 	Vector2 TilemapRenderer::TileSize = Vector2::One;
 	Vector2 TilemapRenderer::OriginTileSize = Vector2::One;
-	Vector2 TilemapRenderer::SelectedIndex = Vector2::One;
+	Vector2 TilemapRenderer::SelectedIndex = Vector2(0, 1);
 
 	TilemapRenderer::TilemapRenderer()
 		: Component(enums::eComponentType::SpriteRenderer)

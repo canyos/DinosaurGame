@@ -250,8 +250,5 @@
     <Filter Include="Audio">
       <UniqueIdentifier>{098b2684-3914-4e33-83c9-e1efb8fca9f4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="connection">
-      <UniqueIdentifier>{432a7139-5680-45ec-af7e-007172d07b0e}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>
