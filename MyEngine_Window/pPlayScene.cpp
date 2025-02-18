@@ -238,7 +238,7 @@ namespace p
 			}
 			cactus->AddCollider(cactusCollider);
 
-			std::uniform_int_distribution<int> randSpawnInterval(3, 5);
+			std::uniform_int_distribution<int> randSpawnInterval(5, 10);
 			spawnInterval = randSpawnInterval(mt);
 			spawnTime = 0;
 		}
@@ -250,7 +250,7 @@ namespace p
 			auto randNum = cloudRand(mt);
 
 			Particle* cloud = object::Instantiate<Particle>(enums::eLayerType::Particle);
-			cloud->SetSpeed(15.0f);
+			cloud->SetSpeed(200.0f);
 			graphics::Texture* cloudTexture = Resources::Find<graphics::Texture>(cloudName[randNum%2]);
 
 			SpriteRenderer* cloudSr = cloud->AddComponent<SpriteRenderer>();
@@ -271,7 +271,7 @@ namespace p
 				cloudTr->SetScale(Vector2(4.0f, 4.0f));
 			}
 
-			std::uniform_int_distribution<int> randSpawnInterval(30, 50);
+			std::uniform_int_distribution<int> randSpawnInterval(100, 200);
 			cloudInterval = randSpawnInterval(mt);
 			cloudTime = 0;
 		}
@@ -283,7 +283,7 @@ namespace p
 			auto randNum = rockRand(mt);
 
 			Particle* rock = object::Instantiate<Particle>(enums::eLayerType::Particle);
-			rock->SetSpeed(30.0f);
+			rock->SetSpeed(340.0f);
 			graphics::Texture* rockTexture = Resources::Find<graphics::Texture>(rockName[randNum % 2]);
 
 			SpriteRenderer* rockSr = rock->AddComponent<SpriteRenderer>();
@@ -305,7 +305,7 @@ namespace p
 				rockTr->SetScale(Vector2(6.0f, 6.0f));
 			}
 
-			std::uniform_int_distribution<int> randSpawnInterval(50, 100);
+			std::uniform_int_distribution<int> randSpawnInterval(100, 300);
 			rockInterval = randSpawnInterval(mt);
 			rockTime = 0;
 		}
