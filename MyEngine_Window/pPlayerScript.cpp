@@ -129,7 +129,7 @@ namespace p {
 				//pos.y -= 100.0f * Time::DeltaTime();
 				//rb->AddForce(Vector2(0, -200.0f));
 				Vector2 velocity = rb->GetVelocity();
-				velocity.y = -900.0f;
+				velocity.y = -700.0f;
 				rb->SetVelocity(velocity);
 				rb->SetGround(false);
 			}

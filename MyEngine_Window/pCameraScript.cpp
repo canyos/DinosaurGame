@@ -25,22 +25,22 @@ namespace p {
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
-		if (Input::GetKey(eKeyCode::Right))
+		if (Input::GetKey(eKeyCode::D))
 		{
-			pos.x += 100.0f * Time::DeltaTime();
+			pos.x = min(4010.0f, pos.x + 500.0f * Time::DeltaTime());
 		}
-		if (Input::GetKey(eKeyCode::Left))
+		if (Input::GetKey(eKeyCode::A))
 		{
-			pos.x -= 100.0f * Time::DeltaTime();
+			pos.x =  max(800.0f, pos.x - 500.0f * Time::DeltaTime());
 		}
-		if (Input::GetKey(eKeyCode::Up))
-		{
-			pos.y -= 100.0f * Time::DeltaTime();
-		}
-		if (Input::GetKey(eKeyCode::Down))
-		{
-			pos.y += 100.0f * Time::DeltaTime();
-		}
+		//if (Input::GetKey(eKeyCode::Up))
+		//{
+		//	pos.y -= 100.0f * Time::DeltaTime();
+		//}
+		//if (Input::GetKey(eKeyCode::Down))
+		//{
+		//	pos.y += 100.0f * Time::DeltaTime();
+		//}
 
 		tr->SetPosition(pos);
 	}

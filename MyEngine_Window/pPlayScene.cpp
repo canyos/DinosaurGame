@@ -49,7 +49,7 @@ namespace p
 			DEFAULT_PITCH | FF_SWISS,
 			L"Arial");         // 글꼴 이름
 
-		PlayScene::map = {0};
+		PlayScene::map = {};
 
 	}
 	PlayScene::~PlayScene()
@@ -89,6 +89,7 @@ namespace p
 		isEnd = false;
 		mTime = 0.0f;
 		score = 0;
+		bMapExist = false;
 		HighScore = ConnectionManager::GetHighScore();
 
 		//main camera
@@ -161,6 +162,7 @@ namespace p
 		
 		FILE* pFile = fopen("../Tile", "r+");
 		if (pFile != NULL) {
+			bMapExist = true;
 			for (;;)
 			{
 				int height = 0;
@@ -170,6 +172,7 @@ namespace p
 				map.push_back(height);
 			}
 			fclose(pFile);
+			sz = map.size();
 		}
 
 
@@ -209,9 +212,7 @@ namespace p
 			Transform* cacTr = cactus->AddComponent<Transform>();
 			cactus->AddComponent<CactusScript>();
 			
-			int sz = map.size();
-			int h = map[(int)mTime%sz];
-			mTime += 1;
+			int h = bMapExist?map[(mapIndex++)%sz]:randNum;
 			if (randNum == 0) {
 				cactusATexture->SetWidth(12);
 				cactusATexture->SetHeight(20);
@@ -238,8 +239,11 @@ namespace p
 			}
 			cactus->AddCollider(cactusCollider);
 
-			std::uniform_int_distribution<int> randSpawnInterval(5, 10);
-			spawnInterval = randSpawnInterval(mt);
+			if (!bMapExist) {
+				std::uniform_int_distribution<int> randSpawnInterval(40, 50);
+				spawnInterval = randSpawnInterval(mt);
+			}
+
 			spawnTime = 0;
 		}
 		
@@ -310,6 +314,7 @@ namespace p
 			rockTime = 0;
 		}
 	}
+
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();

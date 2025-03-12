@@ -25,7 +25,7 @@ namespace p {
 
 		std::wstring cactusName[3] = { L"Cactus A", L"Cactus B", L"Cactus C" };
 		int spawnTime = 0;
-		int spawnInterval = 1;
+		int spawnInterval = 3;
 
 		std::wstring cloudName[2] = { L"Cloud A", L"Cloud B" };
 		int cloudTime = 0;
@@ -34,8 +34,11 @@ namespace p {
 		std::wstring rockName[2] = { L"Rock A", L"Rock B" };
 		int rockTime = 0;
 		int rockInterval = 40;
-
+		
+		bool bMapExist;
 		std::vector<int> map;
+		int mapIndex = 0;
+		int sz;
 	};
 }
 

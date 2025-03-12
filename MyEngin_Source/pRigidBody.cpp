@@ -14,7 +14,7 @@ namespace p {
 		mVelocity(Vector2::Zero),
 		mForce(Vector2::Zero),
 		mLimitedVelocity(Vector2(200.0f,1000.0f)),
-		mGravity(Vector2(0.0f,900.0f)),
+		mGravity(Vector2(0.0f,1100.0f)),
 		mAcceleration(Vector2::Zero)
 	{
 	}

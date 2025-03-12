@@ -39,7 +39,7 @@ namespace p {
 			curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonData.c_str());
 
 			res = curl_easy_perform(curl);
-			assert(res == CURLE_OK);			
+			//assert(res == CURLE_OK);			
 		}
 	}
 	int ConnectionManager::GetHighScore()

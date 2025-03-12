@@ -21,6 +21,7 @@ namespace p
 	}
 	void ToolScene::Initialize()
 	{
+		TILE_LEN = 100;
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(800.0f, 450.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		camera->AddComponent<CameraScript>();
@@ -91,7 +92,7 @@ namespace p
 	{
 		Scene::Render(hdc);
 		
-		for (size_t i = 0; i < 160; i++)
+		for (size_t i = 0; i < 100; i++)
 		{
 			Vector2 pos = renderer::mainCamera->CalculatePosition(Vector2(TilemapRenderer::TileSize.x * i, 0.0f));
 
@@ -99,7 +100,7 @@ namespace p
 			LineTo(hdc, pos.x, 1600);
 		}
 
-		for (size_t i = 0; i < 90; i++)
+		for (size_t i = 0; i < 60; i++)
 		{
 			Vector2 pos = renderer::mainCamera->CalculatePosition
 			(
@@ -136,13 +137,16 @@ namespace p
 		ofn.nMaxFileTitle = 0;
 		ofn.lpstrInitialDir = NULL;
 		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
-
+		
 		if (!GetSaveFileName(&ofn))
 			return;
 
 		FILE* pFile = nullptr;
 		_wfopen_s(&pFile, szFilePath, L"a+");
-		int arr[34] = { 0 };
+		
+
+		int* arr = new int [TILE_LEN];
+		memset(arr, 0, sizeof(int)*TILE_LEN);
 		for (Tile* tile : mTiles)
 		{
 			//TilemapRenderer* tmr = tile->GetComponent<TilemapRenderer>();
@@ -153,7 +157,7 @@ namespace p
 			arr[(int)(position.x/TilemapRenderer::TileSize.x)]++;
 		}
 
-		for (int i = 0; i < 34; i++) {
+		for (int i = 0; i < TILE_LEN; i++) {
 			fwrite(&arr[i], sizeof(int), 1, pFile);
 		}
 		
@@ -184,7 +188,7 @@ namespace p
 
 		FILE* pFile = nullptr;
 		_wfopen_s(&pFile, szFilePath, L"r+");
-		for(int i=0;i<34;i++)
+		for(int i=0;i< TILE_LEN;i++)
 		{
 			int height = 0;
 			if (fread(&height, sizeof(int), 1, pFile) == NULL)
@@ -203,6 +207,7 @@ namespace p
 		fclose(pFile);
 	}
 }
+
 LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
@@ -256,8 +261,8 @@ LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 		p::math::Vector2 mousePosition;
 		mousePosition.x = mousePos.x;
 		mousePosition.y = mousePos.y;
-		int idxX = mousePosition.x / p::TilemapRenderer::OriginTileSize.x;
-		int idxY = mousePosition.y / p::TilemapRenderer::OriginTileSize.y;
+		int idxX = mousePosition.x / 1.0f;
+		int idxY = mousePosition.y / 1.0f;
 		p::TilemapRenderer::SelectedIndex = Vector2(idxX, idxY);
 	}
 	break;

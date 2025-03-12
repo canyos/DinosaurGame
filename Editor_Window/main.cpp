@@ -46,7 +46,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,//프로그램의 인스턴스 �
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
 	MyRegisterClass(hInstance, szWindowClass, WndProc);
-	MyRegisterClass(hInstance, L"TILEWINDOW", WndTileProc);//인스턴스 정보를 설정함
+	//MyRegisterClass(hInstance, L"TILEWINDOW", WndTileProc);//인스턴스 정보를 설정함
 
     // 애플리케이션 초기화를 수행합니다:
     if (!InitInstance (hInstance, nCmdShow))

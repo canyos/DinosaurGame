@@ -7,7 +7,7 @@
 
 namespace p
 {
-	Vector2 TilemapRenderer::TileSize = Vector2::One;
+	Vector2 TilemapRenderer::TileSize = Vector2(48.0f, 48.0f);
 	Vector2 TilemapRenderer::OriginTileSize = Vector2::One;
 	Vector2 TilemapRenderer::SelectedIndex = Vector2(0, 1);
 

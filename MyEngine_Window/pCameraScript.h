@@ -14,8 +14,8 @@ namespace p {
 		void Render(HDC hdc)override;
 
 	private:
-
-	private:
+		
+	
 
 	};
 }

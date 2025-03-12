@@ -32,7 +32,6 @@ namespace p {
 			mLookPosition = cameraTr->GetPosition();
 		}
 
-
 		mDistance = mLookPosition - (mResolution / 2.0f);
 	}
 	void Camera::LateUpdate()

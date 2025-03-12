@@ -21,6 +21,7 @@ namespace p
 
 	private:
 		std::vector<Tile*> mTiles;
+		int TILE_LEN;
 		//Tile* tile;
 		//TilemapRenderer* tmr;
 	};
