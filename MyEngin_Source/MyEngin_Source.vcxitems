@@ -98,4 +98,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)pUITextButton.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pUITextureButton.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)ClassDiagram.cd" />
+  </ItemGroup>
 </Project>
