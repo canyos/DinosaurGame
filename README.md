@@ -1,3 +1,22 @@
+유니티엔진을 c++로 클론 코딩 후 만든 자체엔진을 기반으로 공룡게임을 클론코딩해봤습니다.
+
+사용방법
+
+1. java 21버전 설치
+2. java -jar ./dinosaur-server/build/libs/dinosaur-server-0.0.1-SNAPSHOT.jar를 통해 데이터베이스 서버를 실행
+3. x64/Realease폴더의 Editor_window.exe실행
+
+구현 고려사항
+
+1. player를 생성 후 카메라를 고정하고 랜덤 생성되는 장애물이 왼쪽으로 이동하게 한다.
+2. player의 속도가 빨라짐에 따라 aabb충돌체크만으로는 부족하다고 판단해 swipe충돌방식으로 변경했습니다.
+3. spring으로 간단한 score를 저장할 수 있는 데이터베이스 서버를 만들어 정보를 저장하고 불러올 수 있게했습니다.
+   ![alt text](img/image-2.png)
+4. Tool을 통해 장애물의 패턴을 설정할 수 있게 했습니다.
+   ![alt text](img/image.png)
+   장애물의 패턴을 생성하고 저장, 불러올 수 있습니다.
+   "Tile"로 저장된 파일이 존재한다면 파일의 패턴으로, 없다면 랜덤으로 장애물을 생성합니다.
+
 TODO LIST
 
 - [x] UI button여러개 생성 가능하게 변경
