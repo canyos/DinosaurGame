@@ -2,8 +2,8 @@
 
 사용방법
 
-1. java 21버전 설치
-2. java -jar ./dinosaur-server/build/libs/dinosaur-server-0.0.1-SNAPSHOT.jar를 통해 데이터베이스 서버를 실행
+1. mysql 8.0.33버전 설치 
+2. java 21버전으로 dinosuar-server 폴더의 데이터베이스 서버 실행
 3. x64/Realease폴더의 Editor_window.exe실행
 
 구현 고려사항

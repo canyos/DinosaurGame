@@ -1,3 +1,5 @@
-﻿  MyEngine_Window.vcxproj -> C:\Users\SSAFY\Desktop\DinosaurGame\x64\Debug\MyEngine_Window.lib
+﻿  pConnectionManager.cpp
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  MyEngine_Window.vcxproj -> C:\Users\com100\Desktop\DinosaurGame\x64\Debug\MyEngine_Window.lib
           1개 파일이 복사되었습니다.
           1개 파일이 복사되었습니다.

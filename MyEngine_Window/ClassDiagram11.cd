@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="p::Animation" Collapsed="true">
+    <Position X="46.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQQAgAAAAAAABAhAgAAABAAAgAAAkAAAgBAAAAAAAAE=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pAnimation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Animator" Collapsed="true">
+    <Position X="35.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAQAAQQAUAAAAAAIBCAAABigAAAABEAAAQABAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pAnimator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::AudioClip" Collapsed="true">
+    <Position X="48.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAgCAAABAAAACAAAABAAAAoIAAQAIAIAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pAudioClip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::AudioListener" Collapsed="true">
+    <Position X="43.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAQAAAAAAIAAAAAAAAAAAABAAAAAAAIA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pAudioListener.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::AudioSource" Collapsed="true">
+    <Position X="47.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAACIAAASAAAAAAIAAQABAAAAAAoBAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pAudioSource.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Camera" Collapsed="true">
+    <Position X="52.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAQBAQAAAIAAAQAAACAAAABAAABCAACI=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pCamera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::ColliderComponent" Collapsed="true">
+    <Position X="39.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAQCAAAAAQAAAABAoAAQAAAAAAAMABgAAAAAAMA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pColliderComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::CollisionManager" Collapsed="true">
+    <Position X="51" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAgAAAAQAAAAAEJQAAAAAAACAAABAAAABAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pCollisionManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::GameObject" Collapsed="true">
+    <Position X="40" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABYAAEACCAAIgSAAEgAAJAAAAAAAAAAgABAAAIIAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pGameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Component" Collapsed="true">
+    <Position X="44" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAIAIAAAQAAAAAAIBAAAAAAAAEAABBCAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::ConnectionManager" Collapsed="true">
+    <Position X="52.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAQAAEAIAAAAAQAAAAIoIAAAAABAACAAAACAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pConnectionManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Entity" Collapsed="true">
+    <Position X="43.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAQAAABAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pEntity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Fmod" Collapsed="true">
+    <Position X="49.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAIAAAAAAQAAAAAAAAAAgEAAAAAAAAAAEBAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pFmod.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Application" Collapsed="true">
+    <Position X="49.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAQABAABQFAQABgIQBACABCAQAAABAAAFQAAII=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pApplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Input" Collapsed="true">
+    <Position X="51" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQIAAAAAgAAQACiEAAAAwAKAAAAAJABAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pInput.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Resource" Collapsed="true">
+    <Position X="46.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAIAAAAAAAAAAIABAAAAACIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pResource.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Resources" Collapsed="true">
+    <Position X="52.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAABAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pResources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::RigidBody" Collapsed="true">
+    <Position X="37.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAQBAAAkAAAAAQgAAAABIAAAAABAAEAAABgAEAQACAE=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pRigidBody.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Scene" Collapsed="true">
+    <Position X="38" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQRAAAAAAAAARQAAgAAAMAIAwBBRAAAABJAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::SceneManager" Collapsed="true">
+    <Position X="49.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAACQAAAAAQAAAABAKAAAAABAAAgAABAAADAEAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pSceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Script" Collapsed="true">
+    <Position X="41.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAAAAAAQAAAAAAIAAAAAAAAAAMABAAAAAhAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pScript.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::SpriteRenderer" Collapsed="true">
+    <Position X="45.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQQAAAAAAAAAQBAAAAIIAAAACAAAAAAABAAAAAAIAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pSpriteRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::TilemapRenderer" Collapsed="true">
+    <Position X="50" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAABAAAQFQAAEoIABAACAAIAAAgJAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pTilemapRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Time" Collapsed="true">
+    <Position X="51" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAESABAAAAAAAAAAAAAAACABAAAAEAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pTime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Transform" Collapsed="true">
+    <Position X="54.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABCAAAQAAAAAAIAQAAAAACwgAIBAAAgAAAoA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::Layer" Collapsed="true">
+    <Position X="36" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAQAAIAAAQAAAAAAIBAAAABAAAAEABAAgAAEAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pLayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::UIManager" Collapsed="true">
+    <Position X="52.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAgAAAQAAAAgAIAACAACACAAAgBAAEBEACAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pUIManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::UIBase" Collapsed="true">
+    <Position X="41.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIQACAAAEkQAAQDAAAFIIAiECCIGAAQgEBAAKAEAAoA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pUIBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p::graphics::Texture" Collapsed="true">
+    <Position X="51" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABgAAQAAAAhAAAAAAAABBQABQEAEAAAAIAAEQBAAY=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="p::math::Vector2" Collapsed="true">
+    <Position X="83.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAIAAAARAAAAAEAAAQAAGQAAAAAACADgAAAAAII=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="p::GameObjectIter" Collapsed="true">
+    <Position X="83.25" Y="7.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pGameObject.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="p::eKeyState" Collapsed="true">
+    <Position X="83.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAI=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pInput.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="p::eKeyCode" Collapsed="true">
+    <Position X="86.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAGAAIAAAAAAAAAAAAAAAAAgAAAAAAACACAvv//YQM=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pInput.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="p::enums::eLayerType" Collapsed="true">
+    <Position X="85" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAACAgAAAAgAAAAAAAAAAAAIAAAAQEAAQA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="p::enums::eResourceType" Collapsed="true">
+    <Position X="86.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAggAAAAAAAAAAAAAAAIIAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="p::enums::eComponentType" Collapsed="true">
+    <Position X="85" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAICAAAAAAAAAAAAAAAAAAQQAAAAAAAAAAAAAAQgKIA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="p::enums::eColliderType" Collapsed="true">
+    <Position X="83.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="p::enums::eUIType" Collapsed="true">
+    <Position X="83.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\pEnum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

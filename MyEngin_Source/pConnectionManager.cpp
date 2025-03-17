@@ -39,7 +39,7 @@ namespace p {
 			curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonData.c_str());
 
 			res = curl_easy_perform(curl);
-			assert(res == CURLE_OK);			
+			//assert(res == CURLE_OK);			
 		}
 	}
 	int ConnectionManager::GetHighScore()
@@ -52,9 +52,10 @@ namespace p {
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response); // 응답 데이터 저장
 
 			res = curl_easy_perform(curl); // 요청 실행
-			assert(res == CURLE_OK);			
+			//assert(res == CURLE_OK);			
 		}
-		//return 0;
+		if( res != CURLE_OK)
+			return 0;
 		if (response == "" || response=="[]")return 0;
 		response = response.substr(1, response.length()-2);
 		return stoi(response);
