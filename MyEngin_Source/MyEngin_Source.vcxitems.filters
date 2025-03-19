@@ -104,6 +104,33 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pUITextureButton.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\SocketInclude.h">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SocketAddressFactory.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SocketUtil.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TCPSocket.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)UDPSocket.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SocketAddress.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryBitStream.cpp">
+      <Filter>Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryStream.cpp">
+      <Filter>Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LinkingContext.cpp">
+      <Filter>Serialize</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)pRenderer.h" />
@@ -218,6 +245,39 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)pUITextureButton.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SocketAddressFactory.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SocketUtil.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)UDPSocket.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TCPSocket.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\SocketCommonInclude.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SocketAddress.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LinkingContext.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Math2.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryBitStream.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryStream.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ByteSwap.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="util">
@@ -250,9 +310,11 @@
     <Filter Include="Audio">
       <UniqueIdentifier>{098b2684-3914-4e33-83c9-e1efb8fca9f4}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)ClassDiagram.cd" />
-    <None Include="$(MSBuildThisFileDirectory)ClassDiagram1.cd" />
+    <Filter Include="Socket">
+      <UniqueIdentifier>{aa44fdd0-dfec-4d41-a5b8-358b065d6dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Serialize">
+      <UniqueIdentifier>{dfc1b118-065e-4138-9901-06280f32358c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
