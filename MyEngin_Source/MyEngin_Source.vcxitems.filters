@@ -104,9 +104,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pUITextureButton.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\SocketInclude.h">
-      <Filter>Socket</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)SocketAddressFactory.cpp">
       <Filter>Socket</Filter>
     </ClCompile>
@@ -122,13 +119,22 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SocketAddress.cpp">
       <Filter>Socket</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryBitStream.cpp">
-      <Filter>Serialize</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryStream.cpp">
-      <Filter>Serialize</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)LinkingContext.cpp">
+      <Filter>Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SocketInclude.h">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)OutputMemoryStream.cpp">
+      <Filter>Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputMemoryStream.cpp">
+      <Filter>Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputMemotyBitStream.cpp">
+      <Filter>Serialize</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\SSAFY\Desktop\DinosaurGame\MyEngin_Source\OutputMemoryBitStream.cpp">
       <Filter>Serialize</Filter>
     </ClCompile>
   </ItemGroup>
@@ -257,9 +263,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)TCPSocket.h">
       <Filter>Socket</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\com100\Desktop\DinosaurGame\MyEngin_Source\SocketCommonInclude.h">
-      <Filter>Socket</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SocketAddress.h">
       <Filter>Socket</Filter>
     </ClInclude>
@@ -269,13 +272,22 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Math2.h">
       <Filter>Serialize</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryBitStream.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryStream.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)ByteSwap.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SocketCommonInclude.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)OutputMemoryStream.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)InputMemoryStream.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)InputMemotyBitStream.h">
+      <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\SSAFY\Desktop\DinosaurGame\MyEngin_Source\OutputMemoryBitStream.h">
       <Filter>Serialize</Filter>
     </ClInclude>
   </ItemGroup>

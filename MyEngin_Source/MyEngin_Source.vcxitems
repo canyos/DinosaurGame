@@ -14,9 +14,11 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputMemotyBitStream.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LinkingContext.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryBitStream.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryStream.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)OutputMemoryBitStream.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)InputMemoryStream.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)OutputMemoryStream.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAnimtation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pAudioClip.cpp" />
@@ -66,10 +68,12 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)ByteSwap.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)InputMemotyBitStream.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LinkingContext.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Math2.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryBitStream.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryStream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OutputMemoryBitStream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)InputMemoryStream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)OutputMemoryStream.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pAudioClip.h" />

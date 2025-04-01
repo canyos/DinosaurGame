@@ -1,41 +1,22 @@
 #include "MemoryStream.h"
-void OutputMemoryStream::ReallocBuffer(uint32_t inNewLength)
+template<typename T>
+void MemoryStream::Serialize(T & ioData)
 {
-	mBuffer = static_cast<char*>(std::realloc(mBuffer, inNewLength));
-	//handle realloc failure
-	//...
-	mCapacity = inNewLength;
-}
+	static_assert(
+		std::is_arithmetic<T>::value || std::is_enum<T>::value,
+		"Generic Serialize only supports primitive data types");
 
-void OutputMemoryStream::Write(const void* inData,
-	size_t inByteCount)
-{
-	//make sure we have space...
-	uint32_t resultHead = mHead + static_cast<uint32_t>(inByteCount);
-	if (resultHead > mCapacity)
-	{
-		ReallocBuffer(max(mCapacity * 2, resultHead));
+	if (STREAM_ENDIANNESS == PLATFORM_ENDIANNESS)
+		Serialize(&ioData, sizeof(ioData));
+	else {
+		if (IsInput()) {
+			T data;
+			Serialize(&data, sizeof(T));
+			ioData = ByteSwap(data);
+		}
+		else {
+			T swappedData = ByteSwap(ioData);
+			Serialize(&swappedData, sizeof(swappedData));
+		}
 	}
-
-	//copy into buffer at head
-	std::memcpy(mBuffer + mHead, inData, inByteCount);
-
-	//increment head for next write
-	mHead = resultHead;
-}
-
-
-void InputMemoryStream::Read(void* outData,
-	uint32_t inByteCount)
-{
-	uint32_t resultHead = mHead + inByteCount;
-	if (resultHead > mCapacity)
-	{
-		//handle error, no data to read!
-		//...
-	}
-
-	std::memcpy(outData, mBuffer + mHead, inByteCount);
-
-	mHead = resultHead;
 }
