@@ -137,6 +137,9 @@
     <ClCompile Include="C:\Users\SSAFY\Desktop\DinosaurGame\MyEngin_Source\OutputMemoryBitStream.cpp">
       <Filter>Serialize</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryStream.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)pRenderer.h" />
@@ -289,6 +292,9 @@
     </ClInclude>
     <ClInclude Include="C:\Users\SSAFY\Desktop\DinosaurGame\MyEngin_Source\OutputMemoryBitStream.h">
       <Filter>Serialize</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryStream.h">
+      <Filter>Socket</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

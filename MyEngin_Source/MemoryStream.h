@@ -1,8 +1,8 @@
 #pragma once
 #include <cstdint>
-#include <CommonInclude.h>
+#include "CommonInclude.h"
 #include <cstdlib>
-
+#include "ByteSwap.h"
 #define STREAM_ENDIANNESS 0
 #define PLATFORM_ENDIANNESS 0
 
