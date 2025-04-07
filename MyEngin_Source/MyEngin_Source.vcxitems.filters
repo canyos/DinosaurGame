@@ -83,7 +83,7 @@
       <Filter>component</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pFmod.cpp">
-      <Filter>Fmod</Filter>
+      <Filter>Audio\Fmod</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIButton.cpp">
       <Filter>UI</Filter>
@@ -97,48 +97,14 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pColliderComponent.cpp">
       <Filter>collider</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)pConnectionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)pUIManager.cpp">
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)pUITextureButton.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SocketAddressFactory.cpp">
-      <Filter>Socket</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SocketUtil.cpp">
-      <Filter>Socket</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)TCPSocket.cpp">
-      <Filter>Socket</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)UDPSocket.cpp">
-      <Filter>Socket</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SocketAddress.cpp">
-      <Filter>Socket</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)LinkingContext.cpp">
-      <Filter>Serialize</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SocketInclude.h">
-      <Filter>Socket</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)OutputMemoryStream.cpp">
-      <Filter>Serialize</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)InputMemoryStream.cpp">
-      <Filter>Serialize</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)InputMemotyBitStream.cpp">
-      <Filter>Serialize</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\SSAFY\Desktop\DinosaurGame\MyEngin_Source\OutputMemoryBitStream.cpp">
-      <Filter>Serialize</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MemoryStream.cpp">
-      <Filter>Socket</Filter>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pConnectionManager.cpp">
+      <Filter>DBConn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,7 +187,7 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)pFmod.h">
-      <Filter>Fmod</Filter>
+      <Filter>Audio\Fmod</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)pAudioClip.h">
       <Filter>Audio</Filter>
@@ -250,51 +216,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)pColliderComponent.h">
       <Filter>collider</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)pConnectionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pUITextureButton.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SocketAddressFactory.h">
-      <Filter>Socket</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SocketUtil.h">
-      <Filter>Socket</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)UDPSocket.h">
-      <Filter>Socket</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)TCPSocket.h">
-      <Filter>Socket</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SocketAddress.h">
-      <Filter>Socket</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)LinkingContext.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Math2.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)ByteSwap.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SocketCommonInclude.h">
-      <Filter>Socket</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)OutputMemoryStream.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)InputMemoryStream.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)InputMemotyBitStream.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\SSAFY\Desktop\DinosaurGame\MyEngin_Source\OutputMemoryBitStream.h">
-      <Filter>Serialize</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MemoryStream.h">
-      <Filter>Socket</Filter>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pConnectionManager.h">
+      <Filter>DBConn</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -322,17 +248,14 @@
     <Filter Include="UI">
       <UniqueIdentifier>{4c247843-d179-4fa7-8c9d-6bf93ba45842}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fmod">
-      <UniqueIdentifier>{90c094eb-c8ca-4a6b-9f3d-72ebdefea38f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Audio">
       <UniqueIdentifier>{098b2684-3914-4e33-83c9-e1efb8fca9f4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Socket">
-      <UniqueIdentifier>{aa44fdd0-dfec-4d41-a5b8-358b065d6dbb}</UniqueIdentifier>
+    <Filter Include="DBConn">
+      <UniqueIdentifier>{ba2f29b1-2606-409a-a371-10c746182657}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Serialize">
-      <UniqueIdentifier>{dfc1b118-065e-4138-9901-06280f32358c}</UniqueIdentifier>
+    <Filter Include="Audio\Fmod">
+      <UniqueIdentifier>{90c094eb-c8ca-4a6b-9f3d-72ebdefea38f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

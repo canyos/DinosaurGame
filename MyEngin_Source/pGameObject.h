@@ -78,4 +78,3 @@ namespace p {
 	typedef std::vector<GameObject*>::iterator GameObjectIter;
 }
 
-

@@ -2,9 +2,10 @@
 
 사용방법
 
-1. mysql 8.0.33버전 설치, dinosaur데이터베이스 생성
-2. java 21버전으로 dinosuar-server 폴더의 데이터베이스 서버 실행
-3. x64/Realease폴더의 Editor_window.exe실행
+1. vcpkg로 curl설치
+2. mysql 8.0.33버전 설치, dinosaur데이터베이스 생성
+3. java 21버전으로 dinosuar-server 폴더의 데이터베이스 서버 실행
+4. visual studio로 프로젝트 빌드드
 
 구현 고려사항
 
@@ -36,9 +37,3 @@ TODO LIST
 - [x] player collider 2개 부여하게 하기
 - [x] 선인장 생성 패턴을 생성하는 tool개발 후 파일 형식으로 저장 및 불러오기
 - [x] spring으로 서버,db 달아서 network해보기
-
-멀티 서버 추가
-
-- [ ] 소켓통신
-- [ ] 패킷 수신 후 브로드캐스트
-- [ ] 클라이언트 측 충돌체크 전송
